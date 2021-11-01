@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show{% endblock %}
+{% block body %}
+ <section>
+  {% for item in film %}
+<div class="card">
+  <div class="poster"><img src="{{ reservation.image }}" alt="" ></div>
+    <div class="details">
+            <h2 >{{ reservation.nom }}(2022)<br><span>Réalisateur:{{ reservation.realisateur }}</span></h2>
+
+
+      <div class="tags">
+
+
+                <span>
+
+                    <h4>Durée:{{ reservation.duree | date('H:i') }}</h4>
+                </span>
+
+                <span>
+
+                    <h4>Date: Le {{ reservation.time | date('d/m/y') }} à {{ reservation.time | date('H:i') }} </h4>
+                </span>
+            </div>
+
+            <div class="info">
+        <p>{{ reservation.description  }}
+                </p>
+            </div>
+
+ </div>
+</div>
+ </section>
+ <section id="commentaires">
+    <h1>{{ reservation.comments | length }} commentaires : </h1>
+   {% for comment in reservation.comments %}
+   <div class="comment">
+       <div class="row">
+           <div class="col-3">
+              {{commentaire.nom_utilisateur}} (<small>{{commentaire.date | date('d/m/y à H:i' )}}</small>)
+           </div>
+           <div class="col-9">
+              {{commentaire.content | raw}}
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+   {{ form_start(commentaireForm) }}
+   {{ form_row(commentaireForm.nomutilisateur, {'attr': {'placeholder': "Votre nom"}}) }}
+   {{ form_row(commentaireForm.content, {'attr': {'placeholder': "Votre commentaire"}}) }}
+
+   <button type="submit" class="btn btn-success">Commenter !</button>
+   {{ form_end(commentaireForm) }}
+
+
+
+ </section>
+ {% endblock %}

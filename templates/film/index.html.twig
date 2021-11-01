@@ -1,0 +1,212 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmController!{% endblock %}
+
+{% block body %}
+
+<div  id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img  style="height:500px;"src="image/6565.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="image/88.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="image/44.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+ </div>
+
+
+<!---->
+<center><h1 style="margin: 20px;" class="feature-title">Actuellement aux Cinema </h1></center>
+
+
+
+
+<div class="container111">
+  {% for item in film %}
+	<div class="row">
+		<div class="">
+			<a href="{{path('film_show',{'id':item.id})}}  "><div class="rt-profile-card"><img src="/image/{{item.image}}" class="full-width img-fluid"></a>
+				<div class="rt-profile-body">
+					<div class="rt-profile-name">{{item.nom}}</div>
+					<div class="rt-profile-text">{{item.description}}</div>
+				</div>
+
+			</div>
+		</div>
+		
+		
+</div>
+ 
+ 
+ {% endfor %}
+
+ </div>
+<style>
+
+.row{
+
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+
+  
+}
+
+
+.container111{
+
+	display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap:50px;
+  width: 90%;
+	height: 30%;
+	margin-left:40px;
+
+ 
+}
+
+
+.rt-profile-card {
+	max-width: 200px;
+	background-color: #FFF;
+	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+	background-position: center;
+	overflow: hidden;
+	position: relative;
+	margin: 10px auto;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.rt-profile-card img.full-width {
+	transition: all linear 0.25s;
+	width: 100%;
+	height: auto;
+}
+
+.rt-profile-card .rt-profile-body {
+	position: absolute;
+	left: 30px;
+	right: 15px;
+	bottom: 0;
+	transition: all linear 0.25s;
+}
+
+.rt-profile-card .rt-profile-name {
+	font-size: 30px;
+	
+	color: #FFF;
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+
+	transition: all 200ms ease-out;
+	
+}
+
+.rt-profile-card .rt-profile-text {
+	visibility: hidden;
+	opacity: 0;
+	font-size: 16px;
+	line-height: 1;
+	color: #FFF;
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+	margin-top: 5px;
+	transition: all linear 0.25s;
+}
+
+.rt-profile-card:hover .rt-profile-body {
+	bottom: 30px;
+}
+
+.rt-profile-card:hover .rt-profile-name {
+	color: #ffc920;
+}
+
+.rt-profile-card .rt-profile-name::before,
+.rt-profile-card .rt-profile-name::after {
+	content: "";
+	display: inline-block;
+	background: #fff;
+	border-radius: 20px;
+	width: 120px;
+	height: 2px;
+	margin-right: 0;
+	margin-left: 0;
+	transition: all 250ms ease-in;
+}
+
+.rt-profile-card .rt-profile-name::before {
+	position: absolute;
+	left: 0;
+	top: -7px;
+	transform: translateX(0);
+}
+
+.rt-profile-card .rt-profile-name::after {
+	position: absolute;
+	left: 0;
+	bottom: -7px;
+	transform: translateX(-200px);
+}
+
+.rt-profile-card:hover .rt-profile-name::before {
+	content: "";
+	background: #ffc920;
+	transform: translateX(-200px);
+}
+
+.rt-profile-card:hover .rt-profile-name::after {
+	content: "";
+	background: #ffc920;
+	transform: translateX(0);
+}
+
+.rt-profile-card:hover .rt-profile-text {
+	visibility: visible;
+	opacity: 1;
+	transition: all 400ms ease-out;
+	height: initial;
+}
+
+@media (max-width: 768px) {
+	.rt-profile-card .rt-profile-body {
+		bottom: 30px;
+	}
+	.rt-profile-card .rt-profile-text {
+		visibility: visible;
+		opacity:1;
+		height: initial;
+	}
+	.rt-profile-card .rt-profile-name::before {
+		display: none;
+	}   
+	.rt-profile-card .rt-profile-name::after {
+		position: absolute;
+		left: 0;
+		bottom: -7px;
+		transform: translateX(0);
+	}
+
+
+</style>
+{% endblock %}

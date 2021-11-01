@@ -1,0 +1,284 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show{% endblock %}
+{% block body %}
+    <header class="hero1">
+      <div class="container spacing">
+        <h1 class="primary-title">Plus de 1500 films par an dans
+plus de 100 cinémas partout en Tunis</h1>
+        
+        <a href="" class="btn1">Tout les film</a>
+      </div>
+    </header>
+    <main>
+    
+      <section class="our-products">
+        <div class="container">
+          <h2 class="section-title">Réserver vous</h2>
+          <article class="product shoe-red spacing">
+            <img
+              src="/image/{{film.image}}"
+              alt=""
+              class="product__image"/>
+            <h3 class="product__title">{{film.nom}}</h3>
+            <p class="product__description">
+              {{film.description}}
+            </p>
+            <a href="{{path('reservation')}}" class="btn1">Réserver</a>
+          </article>
+
+          
+       
+    </main>
+
+
+
+<h2 class="text-capitalize" >Commentaires <span >{{film.getCommentaires.count}}</span></h2><br>
+
+                {% if is_granted('ROLE_USER') %}
+                <form action="{{path('comment_add')}}" method="post">
+                <div>
+                        <div class="form-group">
+                            <textarea type="text" placeholder="Ajouter votre commentaire" rows="5" cols="20" name="_comment" id="comment" required class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="login" name="login">
+                                Valider
+                            </button>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}">
+                        <input type="hidden" name="post_id" value="{{film.id}}">
+                    </div>
+                </form>
+                <hr>
+                {% else %}
+                    <a href="{{path('app_login')}}" class="btn btn-link">Connectez vous pour commenter</a>
+                {% endif %}
+                <!-- show comments -->
+                {% for commentaire in film.getCommentaires %}
+                <div class="media mt-3">
+                    <div class="media-body">
+                        <span class="comment-username">{{commentaire.nomutilisateur}} {{commentaire.createdAt|date("F jS \a\t g:ia")}}</span>
+                        <p class="comment mt-2">{{commentaire.text}}</p>
+                    </div>
+                    <hr>
+                </div>
+
+                </section>
+                {% endfor %}
+           
+
+
+
+<style>
+
+
+
+
+ @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* layout */
+
+
+  
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+section {
+  padding: 7rem 0;
+}
+
+.container {
+  width: 85%;
+  max-width: 65rem;
+  margin: 0 auto;
+ 
+}
+
+
+
+/* target any direct child of spacing */
+.spacing > * + * {
+  margin-top: var(--spacer, 2rem);
+}
+
+.btn1 {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-text, #fff);
+  font-weight: 700;
+  background-color: var(--clr-accent, blue);
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.25rem;
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* hero section */
+
+.primary-title {
+  font-size: 50px;
+  line-height: 1;
+  text-transform: uppercase;
+  height:80%
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3.5rem;
+  font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+  line-height: 1;
+  color: #17353d;
+  margin-bottom: 5rem;
+
+}
+
+.hero1 {
+  text-align: center;
+  padding: 15rem 0;
+  color: white;
+  background: #222; /* fallback if blend mode is not supported */
+  height:100%;
+
+}
+
+@supports (background-blend-mode: multiply) {
+  .hero1 {
+    background-image: url(/image/cccc.jpg);
+    background-size: cover;
+  
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width:100%;
+    
+  }
+
+}
+
+/* featured section */
+
+.featured {
+  background: #eee;
+}
+
+.featured__item {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  line-height: 1.2;
+  transform: scale(0.85);
+  transition: transform 250ms ease-in-out;
+}
+
+.featured__item:hover,
+.featured__item:focus {
+  transform: scale(1);
+}
+
+/* circles */
+.featured__item::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  padding: 75% 75% 0 0; /* padding trick to get a circle */
+  border-radius: 50%;
+  background: #2193b0;
+  z-index: -1;
+}
+
+.featured__details {
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+.featured__item:hover .featured__details,
+.featured__item:focus .featured__details {
+  opacity: 1;
+  text-shadow: 0 0 2rem white; /* to prevent overlapping */
+}
+
+.featured__details span {
+  display: block;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+/* product section */
+
+.product {
+  background: radial-gradient(
+    var(--clr-inner, limegreen),
+    var(--clr-outer, purple)
+  );
+  padding: 3rem;
+  border-radius: 1rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.product__title {
+  font-size: clamp(3rem, calc(5vw + 1rem), 5.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.product__image {
+ height:20%;
+ width:50%;
+}
+
+@media (min-width: 45rem) {
+  .product {
+    text-align: left;
+    margin-bottom: 9rem;
+  }
+
+  .product__title {
+    margin: 0;
+  }
+
+  .product__image {
+    float: right;
+    width: 35%;
+    shape-outside: url(https://github.com/kevin-powell/shoes/blob/master/img/shoe-1.png?raw=true); /* text will wrap the shoe */
+    shape-margin: 1rem;
+    margin: 0 -5rem 0 0;
+  }
+
+  .product.shoe-left .product__image {
+    float: left;
+    shape-outside: url(https://github.com/kevin-powell/shoes/blob/master/img/shoe-2.png?raw=true);
+    margin: 0 0 0 -5em;
+    shape-margin: 2em;
+  }
+}
+
+
+
+</style>
+{% endblock %}
