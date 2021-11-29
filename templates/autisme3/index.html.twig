@@ -1,0 +1,214 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autisme{% endblock %}
+
+{% block body %}
+
+
+<section class="pro">
+<div class="d-flex flex-column justify-content-center w-100 h-100">
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="fw-light text-white m-0">Autisme et troubles du neuro-développement</h1>
+    <div class="btn-group my-5">
+        <a href="{{path('medecin')}}" class="btn btn-outline-light" aria-current="page"></i>THÉRAPEUTE</a>
+        <a href="{{path('avs')}}" class="btn btn-outline-light">ACCOMPAGNER </i></a>
+    </div>
+    <a href="https://manuel.pinto.dev" class="text-decoration-none">
+        <h5 class="fw-light text-white m-0">— AUTISME TUNISIE —</h5>
+    </a>
+</div>
+</div>
+</section>
+
+
+
+<section  >
+    <div class="sidebar">
+		<ul  class=tri>
+            <li class="listItemA"><a style="color:blue;"  href="{{path('autisme')}}">L'autisme,c'est quoi ?</a></li>
+
+            <li class="listItemA" >
+				<a style="color:red;" href="{{path('austisme2')}}">Le dépistage, les premiers signes</a></li>
+
+            <li class="listItemA"><a style="color:green;"  href="{{path('autisme3')}}">Le diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:yellow;"href="{{path('autisme4')}}">Obtenir un diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:rgb(194, 41, 168);" href="{{path('autisme5')}}">Les aides et les droits</a></li>
+
+            <li class="listItemA"><a style="color:brown;"  href="{{path('autisme6')}}">La scolarité et les soins</a></li>
+        </ul>
+
+</div>
+
+<div  id="right" class="histoire4 col-md-12 "><center><h3 style="color:green;">Le diagnostic </h3><br>
+
+<h2>Diagnostic de l’autisme : procédures et informations</h2>
+</center>
+<p>
+
+Les parents qui soupçonnent des troubles d’autisme chez leurs enfants pourront se diriger vers un diagnostic dès qu’ils auront détecté les premiers signes d’alerte. Les professionnels de santé doivent alors s’appuyer sur des critères normés et des tests d’évaluation pour établir un diagnostic d’autisme. L’évaluation précoce de l’autisme permet une intervention précoce dont l’objectif est d’agir positivement
+ sur la trajectoire développementale de l’enfant.
+ </p>
+ 
+ 
+ 
+ <img style="height:40%;width:100%;" src="/image/kk.jpg" alt="" srcset="">
+ 
+ 
+ <h3>Les critères de diagnostic
+<h3> <br>
+<h5>
+Les classifications utilisées pour établir le diagnostic
+ </h5>
+
+
+ 
+ <p>Le médecin spécialiste avec lequel vous allez vous entretenir se réfère à deux manuels reconnus à l’international : la CIM-10 et le DSM 5. C’est à partir de ces deux ouvrages qu’il pourra établir un diagnostic d’autisme pour votre enfant. La CIM-10 (Classification Internationale des Maladies) recense les critères d’évaluation des TED (Troubles Envahissants du Développement) :</p> 
+<ul   >
+<li>  l’autisme infantile ;</li> 
+<li>l’autisme atypique ;</li> 
+<li> l'autisme dit de haut niveau (ex. syndrome d’Asperger) ;</li> 
+<li> le syndrome de Rett ;</li> 
+<li> le trouble désintégratif de l’enfance ;</li> 
+<li>les TED non spécifiés.</li>
+ 
+</ul>
+
+<br>
+	<p>Le DSM 5 repose sur des notions et des critères diagnostiques légèrement différents de ceux de la CIM-10. Il évaluera les différents symptômes de votre enfant et indiquera la sévérité des troubles, sans pour autant les classer dans une catégorie. Votre médecin vous parlera alors de TSA (trouble du spectre de l’autisme).</p>
+</div>
+ <br>
+
+ 
+
+ 
+
+ 
+ </div>
+ 
+
+</section>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+.pro{
+	background: linear-gradient(-45deg, #f7df0e, #34d9df, #34d9df, #f7df0e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 50vh;
+  margin-top:10px;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+/* GENERAL */
+
+
+/*SIDEBAR*/
+.sidebar {
+   background: linear-gradient(-45deg, #ffffff, #fcfafb, #fdfeff, #fafdfc);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+
+/* Sidebar Background */
+    width: 320px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 200%;
+    padding: 20px;
+	display: inline-block;
+	box-shadow: 5px 5px rgb(238, 74, 183);
+/* Padding above the sidebar image. */
+   
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+
+#right{
+	float: right;
+	width:75% ;
+	text-align: start;
+	padding:10px;
+	
+	
+
+}
+
+
+.tri {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}
+
+
+
+
+
+
+</style>
+
+
+
+
+{% endblock %}

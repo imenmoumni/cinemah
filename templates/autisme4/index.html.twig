@@ -1,0 +1,215 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autisme{% endblock %}
+
+{% block body %}
+
+
+<section class="pro">
+<div class="d-flex flex-column justify-content-center w-100 h-100">
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="fw-light text-white m-0">Autisme et troubles du neuro-développement</h1>
+    <div class="btn-group my-5">
+        <a href="{{path('medecin')}}" class="btn btn-outline-light" aria-current="page"></i>THÉRAPEUTE</a>
+        <a href="{{path('avs')}}" class="btn btn-outline-light">ACCOMPAGNER </i></a>
+    </div>
+    <a href="https://manuel.pinto.dev" class="text-decoration-none">
+        <h5 class="fw-light text-white m-0">— AUTISME TUNISIE —</h5>
+    </a>
+</div>
+</div>
+</section>
+
+
+
+<section  >
+     <div class="sidebar">
+		<ul  class=tri>
+            <li class="listItemA"><a style="color:blue;"  href="{{path('autisme')}}">L'autisme,c'est quoi ?</a></li>
+
+            <li class="listItemA" >
+				<a style="color:red;" href="{{path('austisme2')}}">Le dépistage, les premiers signes</a></li>
+
+            <li class="listItemA"><a style="color:green;"  href="{{path('autisme3')}}">Le diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:yellow;"href="{{path('autisme4')}}">Obtenir un diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:rgb(194, 41, 168);" href="{{path('autisme5')}}">Les aides et les droits</a></li>
+
+            <li class="listItemA"><a style="color:brown;"  href="{{path('autisme6')}}">La scolarité et les soins</a></li>
+        </ul>
+
+</div>
+
+<div id="right" class="histoire4 col-md-12 "><center><h2  style="color:yellow;">Obtenir un diagnostic </h2>
+
+<h6>Obtenir un diagnostic d’autisme</h6>
+
+
+</center><br>
+<p>Comment obtenir un diagnostic d’autisme ? Vous avez repéré des signes d’alerte de troubles autistiques chez votre enfant ou chez un de vos proches. Après en avoir parlé à votre médecin, vous souhaitez trouver des professionnels de santé pour lui faire passer une évaluation et établir un diagnostic. Quelles sont les étapes et à qui s’adresser ?
+ </p>
+ 
+ 
+ 
+ <img style="height:40%;width:100%;" src="/image/88.jpg" alt="" srcset="">
+ 
+ 
+ <h3 style="color:blue;">Rechercher un médecin spécialiste
+<h3> <br>
+
+
+
+ 
+ <p>En sollicitant des médecins spécialisés dans le trouble du spectre de l’autisme, vous pourrez obtenir un avis sur le développement de votre enfant et un diagnostic. Cette rubrique vous propose des conseils pour trouver un spécialiste de l’autisme et pour préparer cette consultation en toute sérénité.
+
+</p> 
+
+
+<br>
+<h4> Assister à un entretien de restitution de bilan
+  </h4> 
+<br>
+
+
+	<p>Actuellement, il n’existe aucun traitement médicamenteux pour l’autisme. Le handicap est donc présent toute la vie, y compris à l’âge adulte. Mais il existe des approches éducatives, comportementales et développementales qui agissent sur les symptômes. Les interventions spécialisées et individualisées ont pour objectif de permettre à votre enfant de faire des progrès.
+
+La première étape est d’engager une démarche diagnostique auprès d’une équipe spécialisée. La démarche diagnostique peut être longue, mais les interventions peuvent démarrer dès le repérage, elles s’affineront avec les données du diagnostic.</p>
+
+<p>Un diagnostic d’autisme résulte donc d’un ensemble d’observations cliniques structurées effectué par des professionnels de santé pour établir un bilan. À l’issue de cette démarche diagnostique, vous participerez à un entretien de restitution de bilan. Dans cette rubrique, nous expliquons aux parents et accompagnants comment se déroule ce rendez-vous et ce à quoi vous devez vous préparer. À la suite de cet entretien, vous devez recevoir les comptes-rendus des bilans. C’est alors qu’une prise en charge adaptée et individualisée de votre enfant pourra être mise en place.</p>
+
+<br>
+
+<h4>Consulter un médecin qui connait les TSA
+</h4>
+
+<p>Le médecin joue un rôle important dans le domaine de l’autisme, car c’est la seule personne apte à valider un diagnostic de trouble du spectre de l’autisme. Il vous délivrera un certificat qu’il faudra présenter à la MDPH (Maison départementale des personnes handicapées) pour faire une demande de reconnaissance de handicap. Les médecins spécialistes consultent à l’hôpital ou en libéral. Cependant, certains médecins psychiatres restent encore attachés à des théories sur les causes de l’autisme, aujourd’hui invalidées par les communautés médicale et scientifique. Il est donc nécessaire de trouver un médecin qui respectera les recommandations de la Haute Autorité de Santé (HAS). Sachez que vous pouvez faire appel à des associations spécialisées dans l’autisme ou au CRA de votre région pour trouver un médecin compétent.</p>
+
+</div>
+
+
+
+ 
+ 
+ 
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+.pro{
+	background: linear-gradient(-45deg, #f7df0e, #34d9df, #34d9df, #f7df0e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 50vh;
+       margin-top:10px;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+/* GENERAL */
+
+
+/*SIDEBAR*/
+.sidebar {
+   background: linear-gradient(-45deg, #ffffff, #fcfafb, #fdfeff, #fafdfc);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+
+/* Sidebar Background */
+    width: 320px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 200%;
+    padding: 20px;
+	display: inline-block;
+	box-shadow: 5px 5px rgb(238, 74, 183);
+/* Padding above the sidebar image. */
+   
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+
+#right{
+	float: right;
+	width:75% ;
+	text-align: start;
+	padding:10px;
+	
+	
+
+}
+
+
+.tri {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+</style>
+
+{% endblock %}

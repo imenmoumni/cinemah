@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -46,28 +44,9 @@ class User implements UserInterface
      */
     private $prenom;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $date_naissance;
+   
 
-    /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="User")
-     */
-    private $reservations;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User")
-     */
-    private $commentaires;
-
-    
-
-    public function __construct()
-    {
-        $this->reservations = new ArrayCollection();
-        $this->commentaires = new ArrayCollection();
-    }
+   
 
     public function getId(): ?int
     {
@@ -174,77 +153,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateNaissance(): ?int
-    {
-        return $this->date_naissance;
-    }
+    
 
-    public function setDateNaissance(int $date_naissance): self
-    {
-        $this->date_naissance = $date_naissance;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Reservation[]
-     */
-    public function getReservations(): Collection
-    {
-        return $this->reservations;
-    }
-
-    public function addReservation(Reservation $reservation): self
-    {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-            $reservation->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReservation(Reservation $reservation): self
-    {
-        if ($this->reservations->removeElement($reservation)) {
-            // set the owning side to null (unless already changed)
-            if ($reservation->getUser() === $this) {
-                $reservation->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Commentaire[]
-     */
-    public function getCommentaires(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getUser() === $this) {
-                $commentaire->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
- 
+  
 }

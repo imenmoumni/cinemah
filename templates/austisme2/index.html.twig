@@ -1,0 +1,234 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autisme{% endblock %}
+
+{% block body %}
+
+
+<section class="pro">
+<div class="d-flex flex-column justify-content-center w-100 h-100">
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="fw-light text-white m-0">Autisme et troubles du neuro-développement</h1>
+    <div class="btn-group my-5">
+        <a href="{{path('medecin')}}" class="btn btn-outline-light" aria-current="page"></i>THÉRAPEUTE</a>
+        <a href="{{path('avs')}}" class="btn btn-outline-light">ACCOMPAGNER </i></a>
+    </div>
+    <a href="https://manuel.pinto.dev" class="text-decoration-none">
+        <h5 class="fw-light text-white m-0">— AUTISME TUNISIE —</h5>
+    </a>
+</div>
+</div>
+</section>
+
+
+
+<section  >
+     <div class="sidebar">
+		<ul  class=tri>
+            <li class="listItemA"><a style="color:blue;"  href="{{path('autisme')}}">L'autisme,c'est quoi ?</a></li>
+
+            <li class="listItemA" >
+				<a style="color:red;" href="{{path('austisme2')}}">Le dépistage, les premiers signes</a></li>
+
+            <li class="listItemA"><a style="color:green;"  href="{{path('autisme3')}}">Le diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:yellow;"href="{{path('autisme4')}}">Obtenir un diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:rgb(194, 41, 168);" href="{{path('autisme5')}}">Les aides et les droits</a></li>
+
+            <li class="listItemA"><a style="color:brown;"  href="{{path('autisme6')}}">La scolarité et les soins</a></li>
+        </ul>
+
+</div>
+
+<div id="right" class="histoire4 col-md-12"><center><h2 style="color:red;">Le dépistage, les premiers signes  </h2></center><br>
+<p>LE DÉPISTAGE, LES PREMIERS SIGNES
+Dépistage de l’autisme : quels sont les premiers signes ?
+L’observation des premiers troubles de l’autisme chez l’enfant intervient souvent avant ses 3 ans. Un dépistage précoce permet une meilleure prise en charge. Mais quels sont ces premiers signes auxquels les parents doivent être attentifs ?
+
+
+
+
+ </p>
+ 
+ 
+ 
+ <img style="height:40%;width:100%;" src="/image/ss.jpg" alt="" srcset="">
+ 
+ 
+ <h3>Les signes d’alerte<h3> <br>
+<h5>
+Les premiers signes de trouble du spectre de l’autisme (TSA)
+ </h5>
+
+
+ 
+ <p>Les premiers signes de trouble du spectre de l’autisme (TSA)
+En tant que parents, vous vous posez des questions légitimes sur le développement et le comportement de votre enfant. L’entourage, le personnel de la crèche ou l’assistante maternelle ont, peut-être, également remarqué quelques troubles et vous en ont fait part. Des signes d’alerte peuvent en effet présager des tendances autistiques :
+
+des relations sociales perturbées, un isolement dû en partie à une incompréhension des émotions des autres et à des comportements inadaptés.</p> 
+<ul  style="list-style-type:square;">
+  <li>  des troubles de la communication avec notamment des enfants qui ont un retard dans le développement du langage ou qui ne savent pas pointer du doigt ;
+</li> 
+<li> des troubles du comportement avec des gestes répétés et des obsessions inhabituelles ;
+</li> 
+<li> des relations sociales perturbées, un isolement dû en partie à une incompréhension des émotions des autres et à des comportements inadaptés.</p> 
+</li> 
+ 
+</ul>
+
+<br>
+<h4>Le langage  </h4> 
+<br>
+
+
+	<p>
+La notion de langage est notamment importante et assez simple à analyser. Voici quelques éléments qui devraient vous alerter :</p>
+
+    <ul>
+<li>une absence de babillage à 12 mois ;</li>
+<li>une absence de paroles à 18 mois ;</li>
+<li>une association de mots absente à 24 mois ;</li>
+<li>un langage non fonctionnel ;</li>
+<li>une perte de langage quel que soit l’âge.</li>
+
+    </ul>
+
+
+
+    <h2>Le rôle des parents</h2>
+
+    <p>Qui connait mieux votre enfant que vous ? C’est votre vigilance et votre attention de tous les jours qui vous permettront de détecter certains comportements chez votre enfant. Si c’est le cas, vous pourrez dans un premier temps prendre rendez-vous avec votre médecin traitant ou chez le pédiatre. Vous serez ensuite éventuellement redirigés vers un professionnel de santé spécialisé dans l’autisme. Il est important que vous agissiez assez rapidement dès les premières suspicions de tendances autistiques. En effet, un dépistage précoce permet une prise en charge et un meilleur accompagnement de l’enfant. Si le diagnostic se confirme, votre rôle de parents sera de soutenir et d’encourager votre enfant tout au long de son accompagnement.
+
+</p>
+    </p>
+</div>
+
+
+
+ 
+ 
+ 
+
+</section>
+
+
+
+
+<style>
+
+
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+.pro{
+	background: linear-gradient(-45deg, #f7df0e, #34d9df, #34d9df, #f7df0e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 50vh;
+     margin-top:10px;
+   
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+/* GENERAL */
+
+
+/*SIDEBAR*/
+.sidebar {
+   background: linear-gradient(-45deg, #ffffff, #fcfafb, #fdfeff, #fafdfc);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+
+/* Sidebar Background */
+    width: 320px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 200%;
+    padding: 20px;
+	display: inline-block;
+	box-shadow: 5px 5px rgb(238, 74, 183);
+/* Padding above the sidebar image. */
+   
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+
+#right{
+	float: right;
+	width:75% ;
+	text-align: start;
+	padding:10px;
+	
+	
+
+}
+
+
+.tri {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+{% endblock %}

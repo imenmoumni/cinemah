@@ -1,300 +1,530 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}cinémahub!{% endblock %}
+{% block title %}Autisme{% endblock %}
 
 {% block body %}
- <div class="slide" >
-        <img class="mySlides" src="{{ asset('css/slide/p.jpg') }}" alt="image" style="height: 500px;width: 100%;">
-        <img class="mySlides" src="{{ asset('css/slide/pu.jpg') }}" alt="image" style="height: 500px;width: 100%;">
-        <img class="mySlides" src="{{ asset('css/slide/pub.jpg') }}" alt="image" style="height: 500px;width: 100%;">
-         <img class="mySlides" src="{{ asset('css/slide/0.jpg') }}" alt="image" style="height: 500px;width: 100%;">
-        <img class="mySlides" src="{{ asset('css/slide/7.jpeg') }}" alt="image" style="height: 500px;width: 100%;">
 
-     </div>
-     
-      <script src="{{ asset('js/index.js')}}"></script>
-      <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
-      <script src="{{ asset('js/jquery-3.5.1.slim.min.js')}}"></script>
-      <script src="{{ asset('js/popper.min.js')}}"></script>
+  <div  style="margin-top: 10px;"  class="slideshow">
 
+        <div class="slideshow-item" >
+            <img   src="/image/e.jpg">
+            <div class="slideshow-item-text">
+                <h5 style="color:white;"> L’autisme est une maladie ?</h5>
+                <p style="color:white;">
+L’autisme n’est pas une maladie mentale. C’est un trouble du neurodéveloppement : c’est-à-dire des altérations du cerveau qui se mettent en place avant la naissance et sont impliqués dans le langage, la motricité, la perception, les émotions, les interactions sociales…
+C’est pourquoi, depuis 1996, l’autisme est reconnu officiellement comme un handicap. 
 
-
-      
- <section id="about">
-      <div class="about-wrapper container">
-        <div class="about-text">
-          <p class="small">Pourquoi réserver en ligne sur CineHub?</p>
-          <h5>Pour vous permettre de ne plus rater aucun film à
-           l’affiche, en vous proposant un service complet de
-             chez vous jusqu’à la salle de cinéma.</h5>
-          <p>
-            Comment réserver en ligne sur CineHub ? <br>
-          <ul>
-             <li>Sélectionnez l’horaire de votre séance</li>
-            <li> Cliquez sur le bouton ‘réserver’</li>
-            <li> Effectuez la réservation d’une ou plusieurs places de cinéma</li>
-            </ul>
-          </p>
+</p>
+            </div>
         </div>
-        <div class="about-img">
-          <img src="image/re.png" alt="food" />
+        
+        <div class="slideshow-item">
+            <img src="/image/ik.jpg">
+            <div class="slideshow-item-text">
+                <h5  style="color:white;">L’autisme est associé à un retard mental</h5>
+                <p  style="color:white;">PAS FORCÉMENT
+Des personnes peuvent avoir un trouble du spectre autistique sans déficience intellectuelle. Certaines ont même un très bon niveau intellectuel : on parle alors d'autisme de haut niveau.
+
+
+</p>
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="/image/aaa.jpg">
+            <div class="slideshow-item-text">
+                <h5  style="color:white;"> L’autisme se soigne</h5>
+                <p style="color:white;">PAS VRAIMENT
+La cause de l’autisme n’étant pas connue, aucun traitement médical n’existe pour le moment.
+MAIS
+Grâce à une prise en charge pluridisciplinaire et adaptée aux besoins de chacun, il est possible d’améliorer la qualité de vie des personnes autistes tout au long de leur vie.
+
+</p>
+            </div>
+        </div>
+
+    </div>
+
+   <center><div class="histoire4 col-md-6 ">
+    <h1 style="color:green; font: size 40px;margin-top :30px; "> Qui somme nous?</h1>
+      <h5>
+        Autisme  Tunisie est une association qui est pour mais accompagnée et de soutenir les familles touchées par l’autisme et de défendre leurs droits.
+
+        Nous agissons pour faire connaître et reconnaître ce trouble,et pour faciliter la mission de chercher un spécialiste plus facile pour les parent, et pourront avoir une meilleure idée de comment agir avec leur enfant. </p>
+        
+      </h5>
+  </div></center>
+
+
+
+
+<div class="main">
+
+  
+
+  <ul class="cards">
+    <li  class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;" src="/image/0.jpg"></div>
+        <div class="card_content1">
+          <h2 class="card_title">L'autisme, c'est quoi ?</h2>
+          <p class="card_text">Votre enfant ou un de vos proches présente des troubles du comportement et de la communication. On vous parle d’autisme.</p>
+          <a href="{{path('autisme')}}  "><button class="btn card_btn">Lire la suite</button></a>
         </div>
       </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;" src="/image/4.jpg"></div>
+        <div class="card_content2">
+          <h2 class="card_title">Le dépistage, les premiers signes</h2>
+          <p class="card_text">Les signes d’alerte ;L’observation des premiers troubles de l’autisme chez l’enfant intervient souvent avant ses 3 ans.</p>
+          <a href="{{path('austisme2')}}  "><button class="btn card_btn">Lire la suite</button></a>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;"  src="/image/8.jpg"></div>
+        <div class="card_content3">
+          <h2 class="card_title">La scolarité et les soins</h2>
+          <p class="card_text">La scolarisation des enfants est obligatoire de 3 et 16 ans. Plusieurs modes de scolarisation sont possibles.t</p>
+          <a href="{{path('autisme3')}}  "><button class="btn card_btn">Lire la suite</button></a>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;"  src="/image/vv.jpg"></div>
+        <div class="card_content4">
+          <h2 class="card_title">Les aides et les droits</h2>
+          <p class="card_text">Votre enfant vient de recevoir un diagnostic de TSA (trouble du spectre de l’autisme). L’objectif est maintenant de mettre en place un accompagnement pluridisciplinaire adapté?</p>
+          <a href="{{path('autisme4')}}  "><button class="btn card_btn">Lire la suite</button></a>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;"  src="/image/v.jpg"></div>
+        <div class="card_content5">
+          <h2 class="card_title">Obtenir un diagnostic</h2>
+          <p class="card_text">Comment obtenir un diagnostic d’autisme ? Vous avez repéré des signes d’alerte de troubles autistiques chez votre enfant ou chez un de vos proches.</p>
+          <a href="{{path('autisme5')}}  "><button class="btn card_btn">Lire la suite</button></a>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img style="max-width:100%;height:auto ;"  src="/image/vvv.jpg"></div>
+        <div class="card_content6">
+          <h2 class="card_title">Le diagnostic</h2>
+          <p class="card_text">Diagnostic de l’autisme : procédures et informations, Les parents qui soupçonnent des troubles d’autisme chez leurs enfants pourront se diriger vers un diagnostic
+</p>
+          <a href="{{path('autisme6')}}  "><button class="btn card_btn">Lire la suite</button></a>
+        </div>
+      </div>
+    </li>
+  </ul>
+ 
+
+ 
+
+</div>
+
+<section>
+
+  <header class="page-header">
+      <center> <img class="logo" src="/image/oo.png" alt="Street view on our office"></center>
+      <section class="about">
+        <div class="row">
+          <div class="col m l6 ">
+          <h4  style="padding:35px;">Nos articles s’adressent à tous les aidants d’un enfant autiste :</h4>
+    
+            <p >Sa famille et ses proches : parents, grands-parents, fratries et ami(e)s…<br>
+              Le personnel de son école : enseignant(e)s, auxiliaires de vie scolaire, personnel de surveillance…<br>
+              Le personnel médical et paramédical qui assure son suivi : médecins, psychologues, orthophonistes, psychomotricien(ne)s, éducateurs(trices)…<br>
+     </p>   </div>
+          <div class="col m9 l6 right-align">
+            <img class="responsive-img" src="/image/sout.jpg" />  </div>
+        </div>
+      </section>
+    
+    
+
+
+  </header>
+  <main id="main">
+      <section id="about" class="box about">
+        <h2>Notre mission&nbsp;</h2>
+        <p>La mission d’Autisme Tunisie  est de fournir des informations générales et actualisées sur le trouble du spectre de l’autisme (TSA), relayer les recommandations relatives de la HAS, soutenir les personnes concernées et leur entourage et orienter les usagers vers les services les plus adaptés à leurs besoins.
+
+          Autisme Info Service s’adresse aux femmes et aux hommes autistes et à leur entourage, aux professionnels de santé, du social, aux encadrants… et plus globalement, à toute personne intéressée par l’autisme.</p>
+      </section> 
+    <div class="quote">
+      <blockquote class="wrapper">
+        <strong>Ensemble </strong> pour <strong>l'autisme</strong>
+      </blockquote>
+    </div>
+    <!-- header pic --> 
+ <div class ="row">
+  <img src ="https://s3-us-west-2.amazonaws.com/s.cdpn.io/450347/1.jpg" class ="img-responsive"> 
+</div>
+  </main>
+  
+  </section>
+
+  
+  
+    
+  
+
+
+
+
+    <style>
+
+
+      .about h1 {
+        font-size: 1rem;
+      }
       
-    </section>
+      .about p {
+        
+        font-weight: 300;
+        font-style: italic;
+      }
+      
+      .about {
+        background-color: var(--accent-color);
+        height: auto;
+        padding: 1rem;
+      }
+      
+      
+      
+      a {
+      color: inherit;
+      }
+      a:hover {
+      text-decoration: none;
+      }
+      h1, h2, h3, h4 {
+      text-transform: uppercase;
+      margin: 0 0 1.5rem;
+      }
+      .logo {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 32px;
+      }
+      .icon-link {
+      transition: 0.3s;
+      }
+      .icon-link:hover {
+      color:  cadetblue;
+      }
+      .site-title {
+      font-size: calc(36px + 3vw); 
+      }
+      .site-subtitle {
+      font-weight: normal;
+      text-transform: none;
+      font-size: calc(1.5rem + 1vw);
+      }
+      .page-header {
+      margin: 48px 0;
+      
+      }
+      
+      .about,
+      .page-footer {
+      border-top: 1px solid;
+      }
+      .contact {
+      text-align: center;
+      margin: 48px 0;
+      color: #fff;
+      background: #a7d4f1;  
+      }
+      .quote {
+      padding: 4.5rem 0;
+      text-align: center;
+      background-image: url("/image/m.jpg");
+      background-size:  cover;
+      background-attachment: fixed;
+      }
+      blockquote {
+      color: #fff;
+      font-size: calc(1rem + 2vw);
+      
+      }
+      blockquote strong {
+      display: block;
+      }
+      .page-footer {
+      text-align: center;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      }
+      address {
+      margin-bottom: 1.5rem;
+      }
+      
+      *{
+      
+      box-sizing: border-box;
+      }
+      
+      .one {
+      text-align:center;
+      width:30%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+      
+      }
+      
+      .slideshow{
+      width: 100%;
+      height: 90vh;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0px;
+      
+      
+      
+      
+      }
+      
+      .slideshow-item{
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      opacity: 0;
+      animation: slideanim 31s infinite;
+      }
+      
+      .slideshow-item:nth-child(1),
+      .slideshow-item:nth-child(1) img{
+      animation-delay: 0;
+      }
+      .slideshow-item:nth-child(2),
+      .slideshow-item:nth-child(2) img{
+      animation-delay: 10s;
+      }
+      
+      .slideshow-item:nth-child(3),
+      .slideshow-item:nth-child(3) img{
+      animation-delay: 20s;
+      }
+      
+      .slideshow-item img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoom 31s infinite;
+      }
+      
+      .slideshow-item-text{
+      max-width: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      background-color: rgba(41, 27, 27, 0.8);
+      color: #fff;
+      padding: 10rem 5rem;
+      font-family: 'Raleway', sans-serif;
+      }
+      
+      .slideshow-item-text h5{
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      }
+      
+      .slideshow-item-text p{
+      font-weight: 300;
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      }
+      
+      @keyframes slideanim{
+      25%{
+        opacity: 1;
+      }
+      40%{
+        opacity: 0;
+      }
+      }
+      
+      @keyframes zoom{
+      100%{
+        transform: scale(1.3);
+      }
+      }
+      
+      @media screen and (max-width: 1100px){
+      .slideshow-item-text{
+        max-width: 75%;
+      }
+      }
+      
+      @media screen and (max-width: 768px){
+      .slideshow-item-text{
+        padding: 3rem 1.5rem;
+      }
+      }
+      
+      @media screen and (max-width: 456px){
+      .slideshow-item-text{
+        max-width: 100%;
+        top: inherit;
+        transform: translateY(0);
+        bottom: 0;
+      }
+      
+      .slideshow-item-text h5{
+        font-size: 2rem;
+      }
+      
+      .slideshow-item-text p{
+        font-size: 1rem;
+      }
+      }
+      
+      
+      
+      
+      /* Font */
+      @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+      
+      /* Design */
+      *,
+      *::before,
+      *::after {
+      box-sizing: border-box;
+      }
+      
+      
+      
+      .main{
+      max-width: 1200px;
+      margin: 0 auto;
+      }
+      
+      h1 {
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+      }
+      
+      img {
+      height: auto;
+      max-width: 100%;
+      vertical-align: middle;
+      }
+      
+      .btn {
+      color: #ffffff;
+      padding: 0.8rem;
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      font-weight: 400;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      }
+      
+      .btn:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      }
+      
+      .cards {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      }
+      
+      .cards_item {
+      display: flex;
+      padding: 1rem;
+      }
+      
+      @media (min-width: 40rem) {
+      .cards_item {
+      width: 50%;
+      }
+      }
+      
+      @media (min-width: 56rem) {
+      .cards_item {
+      width: 33.3333%;
+      }
+      }
+      
+      .card {
+      background-color: white;
+      border-radius: 0.25rem;
+      box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      }
+      
+      .card_content1 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #010eca, #ffffff, #ffffff, #0f04ad);
+    }
+      .card_content2 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #cf0000, #ffffff, #ffffff, #b30a05);
+      }
+      .card_content3 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #d6b212, #ffffff, #ffffff, #ad9c04);
+      }
+      .card_content4 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #10b11d, #ffffff, #ffffff, #36c70a);
+      }
+      .card_content5 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #a30474, #ffffff, #ffffff, #920987);
+      }
+      .card_content6 {
+      padding: 1rem;
+      background: linear-gradient(-45deg, #be2a04, #ffffff, #ffffff, #c25b06);
+      }
+      
+      .card_title {
+      color: #000000;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+      margin: 0px;
+      }
+      
+      .card_text {
+      color: #000000;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;    
+      font-weight: 400;
+      }
+      
+      
+      
+      
+      
+      
+      
 
 
-   
-
-<center><h1  style="color:#027b9a;font-family:cursive ;"> Actuellement au cinéma </h1>
-<h3> à l'affiche <h3> </center>
-        {% for item in publicite %}
-
-     <div class="grid">
-
-            <div class="cardcontainer">
-                 <img src="/image/{{ item.image }}">
-
-  <p>{{item.description}}</p>
-  
-  <div class="bottomline">
-  
-    <div>
-  <a href="#" class="cardbutton">Réserver</a>
-    </div>
-    
-    <div class="links">
-      <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-</svg></a>
-      <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-</svg></a> 
-       <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-</svg></a> 
-       <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-  <path d="M6.552 6.712c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888.008-.488-.36-.888-.816-.888zm2.92 0c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888s-.36-.888-.816-.888z"/>
-  <path d="M13.36 0H2.64C1.736 0 1 .736 1 1.648v10.816c0 .912.736 1.648 1.64 1.648h9.072l-.424-1.48 1.024.952.968.896L15 16V1.648C15 .736 14.264 0 13.36 0zm-3.088 10.448s-.288-.344-.528-.648c1.048-.296 1.448-.952 1.448-.952-.328.216-.64.368-.92.472-.4.168-.784.28-1.16.344a5.604 5.604 0 0 1-2.072-.008 6.716 6.716 0 0 1-1.176-.344 4.688 4.688 0 0 1-.584-.272c-.024-.016-.048-.024-.072-.04-.016-.008-.024-.016-.032-.024-.144-.08-.224-.136-.224-.136s.384.64 1.4.944c-.24.304-.536.664-.536.664-1.768-.056-2.44-1.216-2.44-1.216 0-2.576 1.152-4.664 1.152-4.664 1.152-.864 2.248-.84 2.248-.84l.08.096c-1.44.416-2.104 1.048-2.104 1.048s.176-.096.472-.232c.856-.376 1.536-.48 1.816-.504.048-.008.088-.016.136-.016a6.521 6.521 0 0 1 4.024.752s-.632-.6-1.992-1.016l.112-.128s1.096-.024 2.248.84c0 0 1.152 2.088 1.152 4.664 0 0-.68 1.16-2.448 1.216z"/>
-</svg></a>  
-    </div>  
-    
-  </div>
-    
-</div>
-
-
-  
-</div>
-{% endfor %}
-
-
-<center>
-<h1  style="color:#027b9a;font-family:cursive ; padding:20px;" >Prochainement</h1>
-<h3>prochaines sorties</h3></center>
-
- {% for item in publicite %}
-    
-
-     <div class="grid">
-
-            <div class="cardcontainer">
-                 <img src="/image/{{ item.image }}">
-
-  <p>{{item.description}}</p>
-  
-  <div class="bottomline">
-  
-    <div>
-  <a href="#" class="cardbutton">Réserver</a>
-    </div>
-    
-    <div class="links">
-      <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-</svg></a>
-      <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-</svg></a> 
-       <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-</svg></a> 
-       <a href="#" class="link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-  <path d="M6.552 6.712c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888.008-.488-.36-.888-.816-.888zm2.92 0c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888s-.36-.888-.816-.888z"/>
-  <path d="M13.36 0H2.64C1.736 0 1 .736 1 1.648v10.816c0 .912.736 1.648 1.64 1.648h9.072l-.424-1.48 1.024.952.968.896L15 16V1.648C15 .736 14.264 0 13.36 0zm-3.088 10.448s-.288-.344-.528-.648c1.048-.296 1.448-.952 1.448-.952-.328.216-.64.368-.92.472-.4.168-.784.28-1.16.344a5.604 5.604 0 0 1-2.072-.008 6.716 6.716 0 0 1-1.176-.344 4.688 4.688 0 0 1-.584-.272c-.024-.016-.048-.024-.072-.04-.016-.008-.024-.016-.032-.024-.144-.08-.224-.136-.224-.136s.384.64 1.4.944c-.24.304-.536.664-.536.664-1.768-.056-2.44-1.216-2.44-1.216 0-2.576 1.152-4.664 1.152-4.664 1.152-.864 2.248-.84 2.248-.84l.08.096c-1.44.416-2.104 1.048-2.104 1.048s.176-.096.472-.232c.856-.376 1.536-.48 1.816-.504.048-.008.088-.016.136-.016a6.521 6.521 0 0 1 4.024.752s-.632-.6-1.992-1.016l.112-.128s1.096-.024 2.248.84c0 0 1.152 2.088 1.152 4.664 0 0-.68 1.16-2.448 1.216z"/>
-</svg></a>  
-    </div>  
-    
-  </div>
-    
-</div>
-
-
-  
-</div>
-{% endfor %}
- 
-  
-
-<style>
-
-
-
-.grid{
-  display: inline-block;
-  font-size: 1.1em;
- 
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  margin-top: 5px;
-  margin-left:50px;
-  
-  
-  
-}
-
-.cardcontainer{
-max-width: 290px;
-min-width: 200px;
-margin-left: auto;
-margin-right: auto;
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: center;
-align-content: center;
-background: white;
-padding: 30px;
-border-radius: 15px;
-border: 1px solid rgba(64, 64, 64, 0.70);
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-transition: all 0.4s ease-in-out;
-}
-
-@media screen and (max-width: 1160px) {
-  .cardcontainer{
-    margin: 20px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .cardcontainer{
-    margin: 20px;
-    padding: 40px;
-  }
-}
-
-.cardcontainer:hover{
-border: 1px solid rgba(255, 255, 255, 1);
-background: dodgerblue;
-color: white;
-transition: all 0.4s ease-in-out;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 74px 75px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-transform: translateY(-15px);
-}
-
-.cardcontainer img {
-  width: 100%;
-  border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 1);
-  filter: grayscale(100%);
-  transition: all 0.4s ease-in-out;
-}
-
-.cardcontainer:hover img{
-  filter: grayscale(0%);
-  border: 1px solid rgba(255, 255, 255, 0);
-  transition: all 0.4s ease-in-out;
-}
-
-.cardcontainer h1{
-  line-height: 50%;
-  font-size: 150%;
-}
-
-.bottomline{
-  display: flex;
-  flex-direction: row;
-  justify-content: between;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-.links{
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.links::before {
-  content: "SHARE";
-  position: relative;
-  bottom: 30px;
-  left: 130px;
-  opacity: 0.4;
-}
-
-.cardcontainer svg{
-  padding-left: 10px;
-  transition: all 0.4s ease-in-out;
-  fill: dodgerblue;
-}
-
-.cardcontainer:hover svg{
-  color: white;
-  transition: all 0.4s ease-in-out;
-  fill: white;
-}
-
-.cardbutton{
-  background: dodgerblue;
-  color: white;
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  text-decoration: none;
-  font-size: 14pt;
-  font-weight: 500;
-  padding: 8px 12px 8px 12px;
-  display: inline-block;
-  max-width: 100px;
-  text-align: center;
-  transition: all 0.4s ease-in-out;
-}
-
-.cardbutton:hover{
-  transform: translateY(-4px) scale(1.05);
-  transition: all 0.3s ease-in-out;
-}
-
-.cardcontainer:hover .cardbutton{
-  background: white;
-  color: dodgerblue;
-  transition: all 0.4s ease-in-out;
-}
-
-.cardcontainer p{
-  position: relative;
-  bottom: 10px;
-  line-height: 130%;
-  font-size: 11pt;
-}
-
-.cardcontainer svg:hover{
-  transform: translateY(5px);
-  transition: all 0.3s ease-in-out;
-}</style>
-
-
+</style>
 {% endblock %}
-   
 
-
-
-
-
-
-
- 

@@ -1,0 +1,291 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autisme!{% endblock %}
+
+{% block body %}
+
+<header>
+
+  <div class="owl-carousel owl-theme">
+      <div class="item">
+          <img  style="margin-top:10px;"
+          src="/image/jaa.jpeg" alt="images not found">
+          
+      </div>                  
+      
+      </div>
+</header>
+
+        <center><div class="histoire4 col-md-6 ">
+      <h1 style="color:green;">Retrouvez ici, des actualités sélectionnées pour vous.</h1>
+        <h3>
+         Ces actualités vous donnent des repères d’information sur un thème d’actualité,
+ un dispositif, un événement, des évolutions de les associations.
+        </h3>
+    </div></center>
+  
+<section style="padding:20px;">
+    <div    id="maCarte"></div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script>
+var carte = L.map('maCarte').setView([36.8064835, 10.1815426], 13);
+
+  // On charge les "tuiles"
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      // Il est toujours bien de laisser le lien vers la source des données
+      attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+      minZoom: 1,
+                maxZoom: 20
+  }).addTo(carte);
+
+
+  {% for item in publicite %}
+  // On crée le marqueur et on lui attribue une popup
+  var marqueur = L.marker([{{ item.lat }}, {{ item.lon }}]).addTo(carte); //.addTo(carte);
+  marqueur.bindPopup("<h3>{{ item.nom }}</h3>");
+  
+  {% endfor %}
+
+</script>
+
+  
+</section>
+
+
+   
+
+
+<hr >
+
+<div class="fullHistoire container">
+  <div class="row">
+
+
+    <div class="row">
+      <div class="image col-md-6">
+        <figure><img  style="height: 100%;width:150%;" src="/image/farah.jpeg" class="img-thumbnail" alt="reponsive-image" /></figure>
+      </div>
+      
+      <div class="histoire2 col-md-6">
+        <h2>Association Farah</h2>
+          <p>Association des parents et des amis des autistes 26, Residence Pergolas El Mourouj 3, 2074 El Mourouj, Tunisia. <br>
+             Farah d'Intégration des Enfants Autistes et à Besoins Spécifiques. recrute. 40 AVS. de niveau universitaire pour travailler.<br>
+
+La fondatrice de l’Association Farah d’intégration des enfants autistes et à besoins spécifiques, Aziza Othmani, appelle à l’aménagement d’espaces éducatifs respectueux des besoins spécifiques des enfants autistes et à former le personnel éducatif dans ce domaine afin d’assurer un meilleur encadrement aux enfants ayant des troubles de développement ou autistes.
+            
+            <br>
+            </p>
+      </div>
+     </div>
+
+
+
+   <div  style="padding: 50px;" class="histoire1 col-md-6">
+     <h2>Ouverture de 1er centre public pour enfants autistes</h2>
+       <p>
+        Le premier centre public  pour enfants autistes vient d'ouvrir en tunisie<br>Il est situé dans la ville Omar Mokhtar à Sid Hasine. ce centre dispose d'une capacité d'accueil de 40 enfants dont la tranche d'age est  comprise entre 3 et 12 ans.
+         <br>
+         Ainsi, mon art se décrit par la fusion entre culture traditionnelle et culture moderne. Il s’inspire aussi bien des anciennes traditions indonésiennes que du hip-hop.
+       </p>
+    </div>
+    
+    <div class="image col-md-6">
+      <figure><img src="/image/sid.png" class="img-thumbnail" alt="responsive-image"/></figure>
+        
+    </div>
+    
+    <div class="row">
+    <div class="image col-md-6">
+      <figure><img  src="/image/halim.jpg" class="img-thumbnail" alt="reponsive-image" /></figure>
+    </div>
+    
+    <div class="histoire2 col-md-6">
+      <h2>Le Centre de formation Halim pour la prise en charge des personnes atteintes d’autisme ouvre ses portes</h2>
+        <p>Le centre de formation professionnelle “Halim” pour la prise en charge des personnes atteintes d’autisme âgées de 14 à 20 ans,  <br>a ouvert ses portes, jeudi, dans l’objectif d’une meilleure intégration de cette catégorie dans la société et dans la vie professionnelle. <br>Je voulais brûler les étapes, atterrir sur le podium directement sans effort. Indonésie ! Indonésie ! Cette destination me démangeait le cerveau.
+          Le Centre Halim se chargera de la formation de 35 enfants dans de nombreuses spécialités, notamment l’impression, l’informatique,  <br>
+          <br>
+          </p>
+    </div>
+   </div>
+    
+    <div class="row">
+    <div class="histoire3 col-md-6">
+      <h2>Pas à pas - Association des parents et amis d'autistes de Tunis</h2>
+        <p>
+          L'Association créée par des bénévoles est un lieu de partage de ce que nous ressentons les uns et les autres. L'expérience de chacun se trouvant ainsi valo
+        </p>
+    </div>
+    
+    <div class="image col-md-6">
+      <figure><img src="/image/pas.png" class="img-thumbnail" alt="responsive-image"/></figure>
+    </div>
+    </div>
+    
+   </div>
+    
+    </div>
+
+
+
+<style>
+  
+
+#maCarte{
+height: 50%;
+ width:120%;
+  padding: 10px 10px;
+background: white;
+font: 14px/16px Arial, Helvetica, sans-serif;
+background: rgba(255,255,255,0.8);
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+
+    }
+.marqueur{
+  color:red;
+}
+/*formes*/
+  
+  
+  .fullHistoire {
+    padding: 60px 0 0 0;
+  }
+  
+  .fullHistoire.container p {
+      text-align: justify;
+  }
+  /*paragraphe*/
+  
+  .histoire1 {
+    padding: 40px;
+  }
+  
+  .histoire2 {
+    padding: 40px 5px;
+  }
+  
+  .histoire3 {
+    padding: 40px;
+  }
+  
+  .histoire4 {
+    padding: 40px;
+  }
+  
+  .histoire5 {
+    padding: 40px;
+  }
+  
+  .histoire6 {
+    padding: 25px;
+  }
+  
+  .histoire7 {
+    padding: 20px;
+  }
+  
+  .histoire8 {
+    padding: 25px;
+  }
+  
+  /*image*/
+  
+  .image {
+    padding: 45px;
+  }
+  
+  figure {
+     width: 400px;
+    height: 300px;
+  }
+  
+  #image_realite_du_reve {
+    padding: 150px 70px;
+  }
+  
+  #image_stresse-depression {
+    padding: 100px 100px;
+  }
+  
+  #image_reve_a_traver_un_autre {
+    padding: 110px 100px;
+  }
+  
+  /*texte*/
+  p {
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  
+  
+  h2 {
+    padding: 0 0 10px 0;
+    font-family: 'Indie Flower', cursive;
+    color: red;
+    
+  }
+  
+  span {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+  }
+  
+  
+  .citation p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    padding: 60px;
+    text-align:center !important;
+  }
+  
+  
+  
+  
+  /*image effect*/
+  .image figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+  .image figure:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  
+  
+  
+  
+  
+  
+  header .item img {
+    width: 99%;
+    height: 80%;
+    border-radius: 40px;
+  }
+  
+  header .item .cover .header-content {
+    position: relative;
+  }
+  header .item .cover .header-content .line {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border: 9px solid #fff;
+    -webkit-clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
+    clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
+  }
+  
+
+  
+</style>
+
+
+{% endblock %}

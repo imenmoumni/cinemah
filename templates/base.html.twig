@@ -1,73 +1,162 @@
- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Music{% endblock %}</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <title>{% block title %}Autisme Tunisie{% endblock %}</title>
+       
        
         {% block stylesheets %}
-        
-         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
          <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+         <link href='fullcalendar/main.css' rel='stylesheet' />
+         
+
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.css%22%3E">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.Default.css%22%3E">
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.Default.css%22%3">
+    <link rel='stylesheet' type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css'/></style>
+
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
+<link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
         {% endblock %}
 
         {% block javascripts %}
-           <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
          <script src="{{asset('js/map.js')}}"></script>
-
-         <script src="https://polyfill.io/v3/polyfill.min.js?features=default%22%3E"></script>
+          <script src="{{ asset('js/index.js')}}"></script>
+          <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+          <script src="{{asset('popper/popper-base.min.js.map_2.4.4/cdnjs/popper-base.min.js.map')}}"> </script>
+          <script src='fullcalendar/main.js'></script>
+          <script src="http://fullcalendar.io/js/fullcalendar-2.7.1/lib/moment.min.js"></script>
+          <script src="http://fullcalendar.io/js/fullcalendar-2.7.1/lib/jquery.min.js"></script>
+          <script src="http://fullcalendar.io/js/fullcalendar-2.7.1/fullcalendar.min.js"></script>
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=default%22%3E"></script>
 
 
         {% endblock %}
-    </head>
-    <body>
-    <nav class="navbar">
-      <div class="navbar-container22 container22">
-          <input type="checkbox" name="" id="">
-          <div class="hamburger-lines">
-              <span class="line line1"></span>
-              
+   
+     
+
+  
+
+<div class="topnav" id="myTopnav">
+  <a href="{{path('home')}}" class="active">S'informer <i class="fa fa-home" aria-hidden="true"></i></a>
+  <a href="{{path('center')}}">Actualité </a>
+  <a href="{{path('medecin')}}">Thérapeute </i></a>
+  <a href="{{path('avs')}}">Accompagner </i></a>
+  <a href="{{path('contact')}}">Contact </i></a>
+
+  {% if app.user %}
+
+  <a href=""><i class="fa fa-user">{{ app.user.nom }} {{ app.user.prenom }}</i></a>
+  <div class="right-lnk">
+  <a href="{{path('app_logout')}}">Déconnexion</i></a>
+  </div>
+  {% else %}
+  <div class="right-lnk">
+  <a href="{{path('app_login')}}"> Connexion <i class="fa fa-sign-in" aria-hidden="true" ></i></a>
+  </div>
+  <div class="right-lnk">
+    <a href="{{path('register')}}"> Sinscrire</a>
+    </div>
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 
 
-          </div>
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-          <img  style="width: 130px; height: 60px; " src="image/ooo.jpg" alt="">
-
-          <ul class="menu-items">
-              <li><a href="{{path('home')}}">Acceuil</a></li>
-               <li><a href="{{path('salle_projection')}}">Salle de projection</a></li>
-              <li><a href="{{path('film')}}">Film</a></li>
-             <li><a href="{{path('contact')}}">contact</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  {% endif %}
+</div>
 
 
-              {% if app.user %}
-             
-              <li><a href="{{ app.user.nom }} {{ app.user.prenom }}"</a></li>
-              <li><a href="{{path('app_logout')}}">Déconnexion</a></li>
-            {% else %}
 
-             <li><a href="{{path('register')}}">Inscription</a></li>
-              <li><a href="{{path('app_login')}}">connexion</a></li>
-              {% endif %}
-          </ul>
+<script>function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 
-      </div>
-  </nav>
+<style>
+  body {
+    margin: 0;
+    font-family: arial;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #34d9df;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: courier new;
+    font-weight: bold;
+  }
+  
+  .topnav a:hover {
+    background-color: #f7df0e;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #f7df0e;
+    color: rgb(8, 7, 7);
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+  
+  .right-lnk {
+     float: right;
+  }
+  
+  </style>
+   
 
-    </body>
 
+    
 
-  {% block body %}{% endblock %}
+ {% block body %}
 
+  {% endblock %}
 
-    <div  style="padding:50px;" class="pg-footer">
+  <div style="margin-top: 20%;"  class="pg-footer">
     <footer class="footer">
       <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
         <path class="footer-wave-path" d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z"></path>
@@ -76,37 +165,37 @@
         <div class="footer-content-column">
           <div class="footer-logo">
             <a class="footer-logo-link" href="#">
-              <span class="hidden-link-text">LOGO</span>
-              <h1><img  style="width:200px; height: 100 px;"  src="image/ooo.jpg" alt=""></h1>
+              <span class="hidden-link-text">Autisme Tunisie</span>
+              <h5>Autisme Tunisie</h5>
             </a>
           </div>
           <div class="footer-menu">
-            <h1 class="footer-menu-name"> </h1>
+            <h2 class="footer-menu-name"> Autisme Tunisie premier réseau tunisienne pour l'autisme</h2>
             <ul id="menu-get-started" class="footer-menu-list">
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">CALENDRIER</a>
+                <a href="#">Start</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">PARTENAIRES</a>
+                <a href="#">Documentation</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">BOUTIQUE</a>
+                <a href="#">Installation</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="footer-content-column">
           <div class="footer-menu">
-            <h2 class="footer-menu-name"> Les grande Salle</h2>
+            <h2 class="footer-menu-name"> Company</h2>
             <ul id="menu-company" class="footer-menu-list">
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Cinéma Colisé</a>
+                <a href="#">Contact</a>
               </li>
               <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                <a href="#">Cinéma ABC</a>
+                <a href="#">News</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#"> Cinéme Pathé</a>
+                <a href="#">Careers</a>
               </li>
             </ul>
           </div>
@@ -124,24 +213,24 @@
         </div>
         <div class="footer-content-column">
           <div class="footer-menu">
-            <h2 class="footer-menu-name"> Lien Rapide</h2>
+            <h2 class="footer-menu-name"> Lien rapide </h2>
             <ul id="menu-quick-links" class="footer-menu-list">
               <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="#">Acceuil</a>
+                <a target="_blank" rel="noopener noreferrer" href="{{path('home')}}">S'informer</a>
               </li>
               <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="#">Film</a>
+                <a target="_blank" rel="noopener noreferrer" href="{{path('center')}}">Actualité</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">salle_projection</a>
+                <a href="{{path('medecin')}}">Thérapeute</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Reservation</a>
+                <a href="{{path('avs')}}">Accompagner</a>
               </li>
               <li class="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                <a href="#">Inscription</a></li>
+                <a href="{{path('register')}}">S'inscrire</a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Connexion</a>
+                <a href="{{path('contact')}}">contact</a>
               </li>
             </ul>
           </div>
@@ -154,7 +243,7 @@
           </div>
           <div class="footer-call-to-action">
             <h2 class="footer-call-to-action-title"> Contactez Nous</h2>
-            <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link" href="tel:0124-64XXXX" target="_self"> +216-64XXXXXX </a></p>
+            <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link" href="tel:+216 27702370" target="_self"> +216 27702370 </a></p>
           </div>
         </div>
         <div class="footer-social-links"> <svg class="footer-social-amoeba-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 54">
@@ -190,18 +279,9 @@
       <div class="footer-copyright">
         <div class="footer-copyright-wrapper">
           <p class="footer-copyright-text">
-            <a class="footer-copyright-link" href="#" target="_self"> ©2021 | cinémahub |  Tous droits réservés ® </a>
+            <a class="footer-copyright-link" href="#" target="_self"> ©2021 | Autisme Tunisie |  Tous droits réservés ® </a>
           </p>
         </div>
       </div>
     </footer>
   </div>
-
-    
-</html>
-            
-          
-
-
-         
-        

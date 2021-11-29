@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\Film;
+use DateTimeImmutable;
+use App\Entity\Medecin;
 use App\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommentaireController extends AbstractController
 {
+   
     /**
-     * @Route("/comment/add", name="comment_add")
+     * @Route("/commentaire/add", name="commentaire_add")
      */
     public function add(Request $request)
     {
@@ -21,13 +24,13 @@ class CommentaireController extends AbstractController
         $user = $this->getUser();
 
         $post = $this->getDoctrine()
-                ->getRepository(Film::class)
+                ->getRepository(Medecin::class)
                 ->find($post_id);
 
         $comment = new Commentaire();
         $comment->setText($request->request->get('_comment'));
         $comment->setUser($user);
-        $comment->setFilm($post);
+        $comment->setMedecin($post);
         $comment->setCreatedAt(new \DateTimeImmutable());
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -37,8 +40,10 @@ class CommentaireController extends AbstractController
 
         $post_id = $post->getId();
 
-        return $this->redirectToRoute('film_show',[
+        return $this->redirectToRoute('medecin_show',[
             'id' =>  $post_id
         ]);
     }
+
+ 
 }

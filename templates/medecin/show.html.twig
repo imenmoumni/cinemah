@@ -1,0 +1,287 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show{% endblock %}
+
+{% block body %}
+
+
+<section style="margin-top:20px; margin-left:20px; "  class="crt">
+  
+
+    <div  class="card">
+      <div class="img-bx">
+        <img src="/image/{{ medecin.image }}" alt="img" />
+      </div>
+      <br>
+      <div class="content12">
+        <div class="detail">
+          <h2>{{ medecin.nom }}<br /><span>{{ medecin.description }}</span></h2>
+          <ul class="sci">
+            <li>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="{{path('rendez_vous')}}"><i class="fa fa-calendar"></i></a>
+            </li>
+            <li>
+              <a href="{{path('contact')}}"><i class="fa fa-envelope"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-map-marker"></i></a>
+            </li>
+          </ul>
+          <a href="{{path('rendez_vous')}}" class="-btn -bg -txt">
+  BUTTON
+</a>
+        </div>
+      </div>
+    </div>
+ 
+ </section>
+
+
+
+<section style="margin-left:50%;  ">
+<form style=" margin-top:-50%; " >
+ 
+<fieldset >
+<legend style="color: cornflowerblue;"> Horaire d'ouverture</legend>
+
+
+<div>Lundi   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i class="fa fa-clock-o"  style="color:rgb(14, 119, 189)"></i> &nbsp08:30&nbsp>&nbsp15:30 </div>
+.................................................................................................................
+<div>Mardi   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i class="fa fa-clock-o"  style="color:rgb(14, 119, 189)"></i> &nbsp08:30&nbsp>&nbsp15:30 </div>
+.................................................................................................................
+<div>Mercredi &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i class="fa fa-clock-o"  style="color:rgb(14, 119, 189)"></i> &nbsp08:30&nbsp>&nbsp15:30 </div>
+.................................................................................................................
+<div>Jeudi   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i class="fa fa-clock-o"  style="color:rgb(14, 119, 189)"></i> &nbsp08:30&nbsp>&nbsp15:30 </div>
+.................................................................................................................
+<div>Vendredi   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <i class="fa fa-clock-o"  style="color:rgb(14, 119, 189)"></i> &nbsp08:30&nbsp>&nbsp15:30 </div>
+.................................................................................................................
+</fieldset>
+</form>
+</section>
+
+
+
+
+<section style=" margin-top:5%; width:30%; margin-left:10px;"    >
+
+<!--commentaire-->
+<h2 class="text-capitalize" >Commentaires <span >{{medecin.getCommentaires.count}}</span></h2>
+
+                {% if is_granted('ROLE_USER') %}
+                <form action="{{path('commentaire_add')}}" method="post">
+                <div>
+                        <div class="form-group">
+                            <textarea type="text" placeholder="Ajouter votre commentaire" rows="5" cols="20" name="_comment" id="comment" required class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="login" name="login">
+                                Valider
+                            </button>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}">
+                        <input type="hidden" name="post_id" value="{{medecin.id}}">
+                    </div>
+                </form>
+                <hr>
+                {% else %}
+                    <a href="{{path('app_login')}}" class="btn btn-link">Connectez vous pour commenter</a>
+                {% endif %}
+                <!-- show comments -->
+                {% for commentaire in medecin.getCommentaires %}
+                <div class="media mt-3">
+                    <div class="media-body">
+                        <span class="comment-username"> {{commentaire.nomutilisateur}}{{commentaire.createdAt|date("F jS \a\t g:ia")}}</span>
+                        <p class="comment mt-2">{{commentaire.text}}</p>
+                    </div>
+                    <hr>
+                   
+                </div>
+                {% endfor %}
+          
+          
+ </section>
+
+
+
+
+
+
+
+   
+
+                
+           
+
+
+
+<style>
+   
+
+
+
+
+  a {
+  text-decoration: none;
+}
+
+.-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.-btn:hover {
+  opacity: .8;
+}
+
+.-bg {
+  background: #03a9f4;
+}
+
+.-txt {
+  color: #fff;
+}
+
+.-xs {
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+.crt {
+    font-family: 'Times New Roman', Times, serif;
+
+  min-height: 100vh;
+  background: linear-gradient(#03a9f4, #03a9f4 45%, #fff 45%, #fff 100%);
+  display: inline-block;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  height: 600;
+  background: #fff;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.img-bx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateY(30px) scale(0.5);
+  transform-origin: top;
+}
+
+.img-bx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.content12 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30px;
+}
+
+.content12 .detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content12 .detail h2 {
+  color: #444;
+  font-size: 1.6em;
+  font-weight: bolder;
+}
+
+.content12 .detail h2 span {
+  font-size: 0.7em;
+  color: #03a9f4;
+  font-weight: bold;
+}
+
+.sci {
+  position: relative;
+  display: flex;
+  margin-top: 5px;
+}
+
+.sci li {
+  list-style: none;
+  margin: 4px;
+}
+
+.sci li a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.5em;
+  color: #444;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.5s;
+}
+
+.sci li a:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<script
+      src="https://kit.fontawesome.com/66aa7c98b3.js"
+      crossorigin="anonymous">
+
+
+  </script>
+{% endblock %}

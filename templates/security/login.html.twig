@@ -3,8 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-
-<form  style="padding :20px" method="post">
+<form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -15,15 +14,55 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
+    <section class="row mx-0 min-vh-100">
+        <div class="col-md-6 col-lg-7 d-none d-md-block position-relative"><img  style="width: 105%;height:100%;" src="/image/un.jpg" alt="" srcset="">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
+           class="position-absolute top-0 end-0 h-100">
+                      <polygon fill="#fff" points="80,0 100,0 100,100"></polygon>
+                  </svg>
+        </div>
+        <div class="col-md-6 col-lg-5 d-flex align-items-center px-md-4 px-lg-5">
+          <div class="w-100">
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" class="bg-warning rounded-circle p-1 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:2rem; height:2rem">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Bienvenue
+            </h4>
+            <div class="border-bottom border-2 border-dark mb-4" style="width:13rem;"></div>
+            <form action="">
+              <div class="mb-3">
+                <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
+              </div>
+              <div class="mb-3">
+                <label for="inputPassword">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+              </div>
+              <div class="d-flex justify-content-between mb-3 small">
+                <div class="form-check">
+ 
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                    <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}">                  <label class="form-check-label" for="remember-me">
+                  
+                  </label>
+                </div>
+      
+              </div>
+              <button type="submit" class="btn btn-warning w-100 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:1.2rem; height:1.2rem">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    
+   
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -36,8 +75,21 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+   
 </form>
+
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+:root{
+    --bs-font-sans-serif: 'Karla', sans-serif;
+}
+
+.form-control:focus{
+  box-shadow : none;
+  border-color: #000;
+}
+</style>
 {% endblock %}

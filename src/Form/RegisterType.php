@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegisterType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom', TextType::class,[
@@ -54,14 +54,14 @@ class RegisterType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "S'inscrire",
                 'attr' => [
-                    'class'=>'btn w-100 text-white mt-2 btn-lg bg-dark',
+                    'class'=>'btn w-100 text-white mt-2 btn-lg bg-info',
                 ]
             ])
 
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,

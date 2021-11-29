@@ -27,12 +27,24 @@ class Admin
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private $mot_pass;
 
     /**
-     * @ORM\OneToMany(targetEntity=Film::class, mappedBy="Admin")
+     * @ORM\OneToMany(targetEntity=Medecin::class, mappedBy="Admin")
      */
-    private $films;
+    private $medecins;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Avs::class, mappedBy="Admin")
+     */
+    private $avs;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Center::class, mappedBy="Admin")
+     */
+    private $centers;
+
+    
 
     /**
      * @ORM\OneToMany(targetEntity=Publicite::class, mappedBy="Admin")
@@ -44,16 +56,16 @@ class Admin
      */
     private $commentaires;
 
-   
-
     
 
     public function __construct()
     {
-        $this->films = new ArrayCollection();
+        $this->medecins = new ArrayCollection();
+        $this->avs = new ArrayCollection();
+        $this->centers = new ArrayCollection();
         $this->publicites = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
-        $this->villes = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -73,42 +85,102 @@ class Admin
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getMotPass(): ?string
     {
-        return $this->password;
+        return $this->mot_pass;
     }
 
-    public function setPassword(string $password): self
+    public function setMotPass(string $mot_pass): self
     {
-        $this->password = $password;
+        $this->mot_pass = $mot_pass;
 
         return $this;
     }
 
     /**
-     * @return Collection|Film[]
+     * @return Collection|Medecin[]
      */
-    public function getFilms(): Collection
+    public function getMedecins(): Collection
     {
-        return $this->films;
+        return $this->medecins;
     }
 
-    public function addFilm(Film $film): self
+    public function addMedecin(Medecin $medecin): self
     {
-        if (!$this->films->contains($film)) {
-            $this->films[] = $film;
-            $film->setAdmin($this);
+        if (!$this->medecins->contains($medecin)) {
+            $this->medecins[] = $medecin;
+            $medecin->setAdmin($this);
         }
 
         return $this;
     }
 
-    public function removeFilm(Film $film): self
+    public function removeMedecin(Medecin $medecin): self
     {
-        if ($this->films->removeElement($film)) {
+        if ($this->medecins->removeElement($medecin)) {
             // set the owning side to null (unless already changed)
-            if ($film->getAdmin() === $this) {
-                $film->setAdmin(null);
+            if ($medecin->getAdmin() === $this) {
+                $medecin->setAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avs[]
+     */
+    public function getAvs(): Collection
+    {
+        return $this->avs;
+    }
+
+    public function addAv(Avs $av): self
+    {
+        if (!$this->avs->contains($av)) {
+            $this->avs[] = $av;
+            $av->setAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAv(Avs $av): self
+    {
+        if ($this->avs->removeElement($av)) {
+            // set the owning side to null (unless already changed)
+            if ($av->getAdmin() === $this) {
+                $av->setAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Center[]
+     */
+    public function getCenters(): Collection
+    {
+        return $this->centers;
+    }
+
+    public function addCenter(Center $center): self
+    {
+        if (!$this->centers->contains($center)) {
+            $this->centers[] = $center;
+            $center->setAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCenter(Center $center): self
+    {
+        if ($this->centers->removeElement($center)) {
+            // set the owning side to null (unless already changed)
+            if ($center->getAdmin() === $this) {
+                $center->setAdmin(null);
             }
         }
 
@@ -175,6 +247,4 @@ class Admin
         return $this;
     }
 
-
-    
 }

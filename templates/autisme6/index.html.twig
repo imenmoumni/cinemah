@@ -1,0 +1,221 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autisme{% endblock %}
+
+{% block body %}
+
+
+<section class="pro">
+<div class="d-flex flex-column justify-content-center w-100 h-100">
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="fw-light text-white m-0">Autisme et troubles du neuro-développement</h1>
+    <div class="btn-group my-5">
+        <a href="{{path('medecin')}}" class="btn btn-outline-light" aria-current="page">THÉRAPEUTE</a>
+        <a href="{{path('avs')}}" class="btn btn-outline-light">ACCOMPAGNER </a>
+    </div>
+    <a href="https://manuel.pinto.dev" class="text-decoration-none">
+        <h5 class="fw-light text-white m-0">— AUTISME TUNISIE —</h5>
+    </a>
+</div>
+</div>
+</section>
+
+
+
+<section  >
+     <div class="sidebar">
+		<ul  class=tri>
+            <li class="listItemA"><a style="color:blue;"  href="{{path('autisme')}}">L'autisme,c'est quoi ?</a></li>
+
+            <li class="listItemA" >
+				<a style="color:red;" href="{{path('austisme2')}}">Le dépistage, les premiers signes</a></li>
+
+            <li class="listItemA"><a style="color:green;"  href="{{path('autisme3')}}">Le diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:yellow;"href="{{path('autisme4')}}">Obtenir un diagnostic</a></li>
+
+            <li class="listItemA"><a  style="color:rgb(194, 41, 168);" href="{{path('autisme5')}}">Les aides et les droits</a></li>
+
+            <li class="listItemA"><a style="color:brown;"  href="{{path('autisme6')}}">La scolarité et les soins</a></li>
+        </ul>
+
+</div>
+<div id="right" class="histoire4 col-md-12 "><center><h2  style="color:blue;">L'AUTISME, C'EST QUOI ?  </h2></center><br>
+<p>L'autisme, c'est quoi ?
+Votre enfant ou un de vos proches présente des troubles du comportement et de la communication. On vous parle d’autisme. En tant que parents, vous vous inquiétez de voir que votre enfant est différent. 
+Et, en attendant le diagnostic, vous vous posez mille questions. Essayons de répondre à la première : « l’autisme, c’est quoi ? ».
+
+
+
+ </p>
+ 
+ 
+ 
+ <img style="height:40%;width:100%;" src="/image/tt.jpg" alt="" srcset="">
+ 
+ 
+ <h3 style="color:blue;">L’autisme<h3> <br>
+<h5>
+Définition  </h5>
+
+
+ 
+ <p>L’autisme est un trouble neuro-développemental. Les premiers signes sont perceptibles avant l’âge de 3 ans. Ces symptômes sont dus à un dysfonctionnement cérébral. Les personnes autistes perçoivent ainsi le monde d’une façon différente par rapport à une personne dite neurotypique. Le TSA (Trouble du spectre de l’autisme) affecte le développement de votre enfant dans :</p> 
+<ul>
+  <li>  la communication (langage, compréhension, contact visuel…),</li> 
+<li> les interactions sociales (perception et compréhension des émotions, relations sociales, jeux…),</li> 
+<li> comportement (gestes stéréotypés, intérêts et activités spécifiques et restreints, mise en place de routines, etc.).</li> 
+ 
+</ul>
+
+<br>
+<h4> Comment faire face à l’autisme ?  </h4> 
+<br>
+
+
+	<p>Actuellement, il n’existe aucun traitement médicamenteux pour l’autisme. Le handicap est donc présent toute la vie, y compris à l’âge adulte. Mais il existe des approches éducatives, comportementales et développementales qui agissent sur les symptômes. Les interventions spécialisées et individualisées ont pour objectif de permettre à votre enfant de faire des progrès.
+
+La première étape est d’engager une démarche diagnostique auprès d’une équipe spécialisée. La démarche diagnostique peut être longue, mais les interventions peuvent démarrer dès le repérage, elles s’affineront avec les données du diagnostic.</p>
+
+</div>
+
+
+
+ 
+ 
+ 
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+.pro{
+	background: linear-gradient(-45deg, #f7df0e, #34d9df, #34d9df, #f7df0e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 50vh;
+       margin-top:10px;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+/* GENERAL */
+
+
+/*SIDEBAR*/
+.sidebar {
+   background: linear-gradient(-45deg, #ffffff, #fcfafb, #fdfeff, #fafdfc);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+
+/* Sidebar Background */
+    width: 320px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 200%;
+    padding: 20px;
+	display: inline-block;
+	box-shadow: 5px 5px rgb(238, 74, 183);
+/* Padding above the sidebar image. */
+   
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+
+#right{
+	float: right;
+	width:75% ;
+	text-align: start;
+	padding:10px;
+	
+	
+
+}
+
+
+.tri {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+{% endblock %}

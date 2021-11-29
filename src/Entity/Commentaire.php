@@ -18,14 +18,9 @@ class Commentaire
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     * @ORM\Column(type="string", length=255)
      */
-    private $User;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Film::class, inversedBy="commentaires")
-     */
-    private $Film;
+    private $text;
 
     /**
      * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="commentaires")
@@ -33,45 +28,38 @@ class Commentaire
     private $Admin;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Medecin::class, inversedBy="commentaires")
      */
-    private $text;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom_utilisateur;
+    private $Medecin;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nomutilisateur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     */
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUser(): ?User
+    public function getText(): ?string
     {
-        return $this->User;
+        return $this->text;
     }
 
-    public function setUser(?User $User): self
+    public function setText(?string $text): self
     {
-        $this->User = $User;
-
-        return $this;
-    }
-
-    public function getFilm(): ?Film
-    {
-        return $this->Film;
-    }
-
-    public function setFilm(?Film $Film): self
-    {
-        $this->Film = $Film;
+        $this->text = $text;
 
         return $this;
     }
@@ -88,26 +76,14 @@ class Commentaire
         return $this;
     }
 
-    public function getText(): ?string
+    public function getMedecin(): ?Medecin
     {
-        return $this->text;
+        return $this->Medecin;
     }
 
-    public function setText(string $text): self
+    public function setMedecin(?Medecin $Medecin): self
     {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    public function getNomUtilisateur(): ?string
-    {
-        return $this->nom_utilisateur;
-    }
-
-    public function setNomUtilisateur(string $nom_utilisateur): self
-    {
-        $this->nom_utilisateur = $nom_utilisateur;
+        $this->Medecin = $Medecin;
 
         return $this;
     }
@@ -120,6 +96,30 @@ class Commentaire
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getNomUtilisateur(): ?string
+    {
+        return $this->nomutilisateur;
+    }
+
+    public function setNomUtilisateur(string $nomutilisateur): self
+    {
+        $this->nomutilisateur = $nomutilisateur;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }
