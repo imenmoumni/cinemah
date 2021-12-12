@@ -1,16 +1,14 @@
 <?php
-
 namespace App\Form;
 
 use App\Data\SearchData;
 use App\Entity\Category;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class SearchForm extends AbstractType
 {
@@ -22,49 +20,35 @@ class SearchForm extends AbstractType
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Rechercher'
+
+                    'placeholder' => 'rechercher'
                 ]
+
             ])
-            ->add('categories', EntityType::class, [
-                'label' => false,
+
+            ->add('category', EntityType::class, [
+                'label'    => false,
                 'required' => false,
-                'class' => Category::class,
+            
+                'class'    => Category::class,
                 'expanded' => true,
-                'multiple' => true
-            ])
-            ->add('min', NumberType::class, [
-                'label' => false,
-                'required' => false,
-                'attr' => [
-                    'placeholder' => 'Prix min'
-                ]
-            ])
-            ->add('max', NumberType::class, [
-                'label' => false,
-                'required' => false,
-                'attr' => [
-                    'placeholder' => 'Prix max'
-                ]
-            ])
-            ->add('promo', CheckboxType::class, [
-                'label' => 'En promotion',
-                'required' => false,
-            ])
-        ;
+                'multiple' => true,
+                'attr'     =>["class" => "cat"]
+
+            ]);
+           
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => SearchData::class,
+            'Data_class' => SearchData::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);
     }
 
-    public function getBlockPrefix()
-    {
-        return '';
-    }
-
+    public function getBlockPrefix(){
+        return '';     }
 }

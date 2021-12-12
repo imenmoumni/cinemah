@@ -8,6 +8,7 @@ a {
 }
 .pg-footer {
   font-family: 'Roboto', sans-serif;
+  
 }
 
 
@@ -42,6 +43,7 @@ a {
     padding-right: 15px;
     width: 100%;
     color: #000000;
+
 }
 
 .footer-content-column ul li a {
@@ -89,7 +91,7 @@ a {
     margin-right: 0;
 }
 .footer-call-to-action-button {
-    background-color: #f7df0e;
+    background-color: #f70e5c;
     border-radius: 21px;
     color: #fff;
     display: inline-block;

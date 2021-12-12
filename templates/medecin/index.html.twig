@@ -1,25 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Autisme Tunisie{% endblock %}
-
+{% block title %}  Autisme Tunisie{% endblock %}
 {% block body %}
 
-<section  >
+
+<!--publicite doc-->
+<section  class="ke" >
 <div class="row">
-  <div  style="margin-top: 120px; text-align:center;" class="histoire3 col-md-6">
-    <h2  style="color:blue;">Prenez rapidement un rendez-vous avec votre médecin !</h2>
-      <h3 style="margin-left: 60px;">
-        Sélectionnez votre médecin, choisissez la date et heure de votre rdv et recevez votre sms/mail de confirmation. C’est aussi simple que ça !      </h3>
+
+<!--filter-->
+<div  style="width: 30%; margin-left:15%;margin-top:60px;" >
+  {% include 'medecin/_filtre.html.twig' with{form:form} only %}
   </div>
-  
+
+  <!--pic-->
   <div class=" col-md-6">
-   <img   style="height:70%; width:250%; border-style: none;" src="/image/tbib.jpg" class="img-thumbnail" alt="responsive-image"/>
+   <img   style="height:70%; width:100%; border-style: none;" src="/image/tbib.jpg" class="img-thumbnail" alt="responsive-image"/>
   </div>
   </div>
 
 </section>
 
-<section style="margin-top: -100px;" >
+<!--specialiste information-->
+<section style="margin-top: -100px;margin-left:30px " >
   <hr size="3" color="blue"noshade>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -27,26 +30,18 @@
 
     <center><h1 style="color: rgb(21, 21, 196); font-style: bold; font-family:monospace;">Spécialité</h1></center>
 	
-		<div   class=" col-md-15 " id="onglets">
+		<div   class=" col-md-12 " id="onglets">
 
 			<h3>Orthophoniste</h3>
 			<p>
         L'orthophoniste prévient, repère et traite les troubles de la voix, de la parole et du langage chez les enfants et les adultes. L'une de ses compétences principales : concevoir et mettre en oeuvre des programmes de rééducation.</p>
 			<h3> Pédopsychiatre </h3>
-			<p>Le pédopsychiatre est un psychiatre spécialisé dans les troubles mentaux (autisme, dépression…) des enfants et des adolescents. Pour le diagnostic, le traitement et la prévention de ces maladies, il privilégie autant que possible la parole aux médicaments.
+			<p>Le pédopsychiatre est un psychiatre spécialisé dans les troubles mentaux (autisme, dépression…) des enfants et des adolescents. Pour le diagnostic, le traitement et la prévention de ces maladies.
       </p>
 			
 			<h3>Psychomotricien</h3>
-			<p>Le psychomotricien est un auxiliaire médical dont le rôle est de rééduquer les patients qui présentent des troubles psychomoteurs, au moyen de certaines techniques d'approche corporelle telles que :
- la relaxation dynamique ;
-        
-       l'éducation gestuelle ,
-        
-       l'expression corporelle ou plastique ,
-        
-      les activités rythmiques et de jeu ,
-        
-      les exercices d'équilibre et de coordination.</p>
+			<p>Le psychomotricien est un auxiliaire médical dont le rôle est de rééduquer les patients qui présentent des troubles psychomoteurs, au moyen de certaines techniques d'approche corporelle .
+</p>
 			
 			<h3>Neurologue</h3>
 			<p>
@@ -54,19 +49,26 @@
         <h3> Pédiatre </h3>
         <p> La pédiatrie est une branche spécialisée de la médecine qui étudie le développement neuro-sensori-moteur et physiologique normal de l'enfant.
         </p>
+
+        <h3> Psychiatre </h3>
+        <p> Un psychiatre peut intervenir de bien des façons auprès des personnes autistes et leur famille.
+          Un psychiatre est un médecin spécialisé en santé mentale, exerçant la psychiatrie. Il diagnostique, traite et tente de prévenir la souffrance psychique
+        </p>
 		</div>
   </section>
 <br>
-  <hr size="3" color="blue"noshade width="75%">
 
 
-<section style="padding-top: 20px;">
+
+
+<!-- doc card-->
+<section >
 
     {% for item in medecin %}
 <div class="grid">
 
 <div class="cardcontainer">
-     <img src="/image/{{ item.image }}">
+     <img   style="height:200px; width:200px;" src="/image/{{ item.image }}">
      <h5>{{item.nom}}</h5>
      <br>
 
@@ -113,6 +115,9 @@
 
 
 <style>
+
+
+
   
  h3{text-align: center;}
   table th {
@@ -127,14 +132,15 @@ margin-left: 100px;  }
   
   form div {
     margin-bottom:1em;
-    width: 100%;
+  
   }
   
   input[type=text] {
     padding:4px;
     font-size:16px;
     border:1px solid #471ddd;
-    width:60%;
+    width:50%;
+    border-radius: 10px;
   }
   
  
@@ -149,7 +155,6 @@ margin-left: 100px;  }
   }
   
   label {
-    width:200%;
     margin-left: 50px;  
 
   }
@@ -163,65 +168,63 @@ margin-left: 100px;  }
   h3{font-style: italic;}
   
   
-
+  .grid{
+    display: inline-block;
+    font-size: 1.1em;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-left:50px;
    
-.grid{
-  display: inline-block;
-  font-size: 1.1em;
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  margin-top: 5px;
-  margin-left:50px;
- 
-}
-.cardcontainer{
-max-width: 290px;
-min-width: 200px;
-margin-left: auto;
-margin-right: auto;
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: center;
-align-content: center;
-background: white;
-padding: 30px;
-border-radius: 15px;
-border: 1px solid rgba(64, 64, 64, 0.70);
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-transition: all 0.4s ease-in-out;
-}
-@media screen and (max-width: 500px) {
-  .cardcontainer{
-    margin: 20px;
   }
-}
-@media screen and (max-width: 550px) {
   .cardcontainer{
-    margin: 20px;
-    padding: 40px;
-  }
-}
-.cardcontainer:hover{
-border: 1px solid rgba(255, 255, 255, 1);
-background: dodgerblue;
-color: white;
-transition: all 0.4s ease-in-out;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 74px 75px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-transform: translateY(-15px);
-}
-.cardcontainer img {
-  width: 100%;
+  max-width: 290px;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  padding: 30px;
   border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 1);
-  filter: grayscale(100%);
+  border: 1px solid rgba(64, 64, 64, 0.70);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: all 0.4s ease-in-out;
-}
+  }
+  @media screen and (max-width: 500px) {
+    .cardcontainer{
+      margin: 20px;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .cardcontainer{
+      margin: 20px;
+      padding: 40px;
+    }
+  }
+  .cardcontainer:hover{
+  border: 1px solid rgba(255, 255, 255, 1);
+  background: dodgerblue;
+  color: white;
+  transition: all 0.4s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 74px 75px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transform: translateY(-15px);
+  }
+  .cardcontainer img {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.40);
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    filter: grayscale(100%);
+    transition: all 0.4s ease-in-out;
+  }
 .cardcontainer:hover img{
   filter: grayscale(0%);
   border: 1px solid rgba(255, 255, 255, 0);

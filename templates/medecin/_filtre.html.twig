@@ -1,0 +1,35 @@
+<div  class="spec">
+
+
+
+
+ {{ form_start(form, {attr: {class: 'filtre js-filtre-form'}}) }}
+
+ {{ form_row(form.q) }}
+
+
+  <h4 style="margin-left: 40px;">Spécialiste</h4>
+ 
+  {{ form_row( form.category) }}
+
+  <br>
+
+  <button type="submit" class="btn btn-primary w-50">Poursuivre</button>
+
+{{ form_end(form) }}
+
+</div>
+
+
+
+<style>
+
+ .cat{
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+  
+
+ }
+    
+</style>

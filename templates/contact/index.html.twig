@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Autisme Tunisie{% endblock %}
 
 {% block body %}
+
+<!--inscription-->
 <div class="container  ">
   <div id="connexion">
     <h1 class="title">Bienvenue</h1>
@@ -10,13 +12,15 @@
 Une équipe de répondants s’appuyant sur un réseau d’experts adresse vos questions sur l’autisme.     </p>
     <a href="{{path('register')}}" class="btn-link connexion">Inscription</a>
   </div>
+
+
+  <!--connect-->
   <div id="inscription">
-   
 
     <h1 class="title">Contactez-Nous</h1>
-    <p class="paragraphe">
-      Veuillez remplir tous les champs
-    </p>
+      <p class="paragraphe">
+       Veuillez remplir tous les champs
+     </p>
     {% for message in app.flashes('message')%}
     <div class="alert alert-success" role="alert">
         {{message}}

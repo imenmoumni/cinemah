@@ -4,10 +4,28 @@
 
 
 {% block body %}
-    <div id="calendrier">
-    </div>
 
-<img   style="margin-top:10%; margin-left:250px;"src="/image/nn.png" alt="" srcset="">
+<!--button back-->
+
+<div>
+<div class="backBtn">
+  <span class="line tLine"></span>
+  <span class="line mLine"></span>
+  <a  style="color: black;" href="{{path('medecin')}}"> <span class="label">Back</span> </a>
+  <span class="line bLine"></span>
+</div>
+<div  style="margin-top:40px;"class="backBtn">
+  <span class="line tLine"></span>
+  <span class="line mLine"></span>
+  <a  style="color: black;" href="{{path('send')}}"> <span class="label"> &nbsp&nbsp&nbsp Contact</span> </a>
+  <span class="line bLine"></span>
+</div>
+</div>
+<!--calendar-->
+    <center> <div id="calendrier">
+    </div></center>
+
+<img   style="float:right;margin-top:-30%;width:90px;height:90px;margin-right:100px; "src="/image/nn.png" alt="" srcset="">
 
 
 
@@ -18,7 +36,7 @@
             width: 50%;
             margin-top:40px;
             height:80%;
-            float:left;
+            
             padding-left:10px;
             display: inline - block;
             padding: 2 px 4 px;
@@ -91,6 +109,93 @@
         }
         
 
+.buttonText{
+ 
+}
+
+
+
+/*button back*/
+ 
+  div.backBtn {
+    width: 100px;
+  right: 100px;
+    top: 100px;
+    background-color: #f4f4f4;
+    transition: all 0.4s ease;
+    position: absolute;
+    cursor: pointer;
+    
+  }
+  
+  span.line {
+    bottom: auto;
+    right: auto;
+    top: auto;
+    left: auto;
+    background-color: #333;
+    border-radius: 10px;
+    width: 100%;
+    left: 0px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: width 0.2s ease 0.1s, left 0.2s ease, transform 0.2s ease 0.3s, background-color 0.2s ease;
+  }
+  
+  span.tLine {
+    top: 0px;
+  }
+  
+  span.mLine {
+    top: 13px;
+    opacity: 0;
+  }
+  
+  span.bLine {
+    top: 26px;
+  }
+  
+  .label {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.4s ease;
+    font-size: 1em;
+  }
+  
+  div.backBtn:hover span.label {
+    left: 25px
+  }
+  
+  div.backBtn:hover span.line {
+    left: -10px;
+    height: 5px;
+    background-color: #F76060;
+  }
+  
+  div.backBtn:hover span.tLine {
+    width: 25px;
+    transform: rotate(-45deg);
+    left: -15px;
+    top: 6px;
+  }
+  
+  div.backBtn:hover span.mLine {
+    opacity: 1;
+    width: 30px;
+  }
+  
+  div.backBtn:hover span.bLine {
+    width: 25px;
+    transform: rotate(45deg);
+    left: -15px;
+    top: 20px;
+  }
+
+
 
   </style>
 
@@ -102,6 +207,14 @@ window.onload = () => {
             initialView: 'timeGridWeek',
             locale: 'fr',
             timeZone: 'Europe/Paris',
+            buttonText:{
+              today:'Aujourdhui',
+                month:'Mois',
+                week:'Semaine',
+                day:'Jour',
+                list:'Liste'
+
+            },
             headerToolbar: {
                 right: 'prev,next today',
                 center: 'title',
@@ -113,7 +226,7 @@ window.onload = () => {
             selectable:true,
             selectableHelper:false,
             eventLimit:true,
-
+            navLinks:true,
         })
         calendar.on('eventChange', (e) => {
             let url = `/api/${e.event.id}/edit`
@@ -152,6 +265,7 @@ window.onload = () => {
     center: 'title',
     right: 'dayGridMonth,timeGridWeek,timeGridDay'
   }
+  
   
 });
 

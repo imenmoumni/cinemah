@@ -69,6 +69,11 @@ class Avs
      */
     private $experience;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Region::class, inversedBy="Avs")
+     */
+    private $region;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -185,6 +190,18 @@ class Avs
     public function setExperience(int $experience): self
     {
         $this->experience = $experience;
+
+        return $this;
+    }
+
+    public function getRegion(): ?Region
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?Region $region): self
+    {
+        $this->region = $region;
 
         return $this;
     }

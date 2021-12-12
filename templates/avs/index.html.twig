@@ -1,109 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AvsController!{% endblock %}
+{% block title %}Autisme{% endblock %}
 
 {% block body %}
 
-
-
-
-
 <!-- Section: About -->
-  <section class="about">
+<section class="about">
 
 
     <div class="row ">
-      <div  class=" col-md-6">
-      <h4>L’AVS : accompagnement d’un enfant autiste à l’école</h4>
-
-        <p  class="flow-text">L’auxiliaire de vie scolaire est une personne qui intervient à l’école pour aider les enfants en situation de handicap. Elle participe à l’Équipe de Suivi de Scolarisation qui assure la mise en œuvre du Projet Personnalisé de Scolarisation
-
-L’AVS doit répondre aux besoins d’accompagnement spécifiques de l’enfant autiste en termes d’inclusion scolaire. <br>Il peut prendre en charge :
-<ul>
-<li>un accompagnement individuel en milieu ordinaire ;</li>
-<li>un accompagnement collectif en ULIS.</li>
-</ul>
-       </p>   </div>
+         <div  class=" col-md-6">
+            <h4>L’AVS : accompagnement d’un enfant autiste à l’école</h4> 
+              <p  class="flow-text">L’auxiliaire de vie scolaire est une personne qui intervient à l’école pour aider les enfants en situation de handicap. Elle participe à l’Équipe de Suivi de Scolarisation qui assure la mise en œuvre du Projet Personnalisé de Scolarisation
+                   L’AVS doit répondre aux besoins d’accompagnement spécifiques de l’enfant autiste en termes d’inclusion scolaire. <br>Il peut prendre en charge :
+                 <ul>
+                     <li>un accompagnement individuel en milieu ordinaire ;</li>
+                     <li>un accompagnement collectif en ULIS.</li>
+                 </ul>
+               </p>  
+         </div>
       <div class="col-md-6 right-align">
-        <img class="responsive-img" src="/image/avs.jpg" />  </div>
+         <img class="responsive-img" src="/image/avs.jpg" />  </div>
     </div>
-  </section>
+</section>
 
+      <hr style="  margin-top: -40px;	box-shadow: 0 20px 20px -20px rgb(207, 211, 16);   border: 5px solid rgb(219, 198, 2);
+      ;" >
 
-  <hr style="  margin-top: -40px;	box-shadow: 0 20px 20px -20px #333;
-  " >
-
+<!--image-->
 <section>
   <center> 
-  <img class="col-md-3"  style=" margin-top: -90px;
-  "   src="/image/acc.png">
- </center>
+  <img class="col-md-3"  style=" margin-top: -100px;
+  "   src="/image/acc.png"></center>
 
 
 
+  <!--filter-->
 
- <div class="content-wrapper">
-
-  {% for item in avs %}
-  
-  <div class="news-card">
-    <a href="{{path('avs_show',{'id':item.id})}}" class="news-card__card-link"></a>
-    <img  src="/image/{{ item.image}}" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">{{item.nom}}</h2>
-      <div class="news-card__post-name">Auxiliaire de vie</div>
-      <div class="news-card__details-wrapper">
-        <a href="#" class="news-card__read-more">Lire la suite <i class="fas fa-long-arrow-alt-right"></i></a>
+<section   >
+  <div  class="container3">
+    <div class="row">
+      <div class="col-sm-8"> {% include 'avs/_filtre.html.twig' with{form:form} only %}
       </div>
     </div>
   </div>
+</section>
+     
 
-
-
-
-  
-
- {% endfor %}
-
-</div>
+  <!--card-->
+    <div class="content-wrapper">
+         {% for item in avs %}
+         <div class="news-card">
+                <a href="{{path('avs_show',{'id':item.id})}}" class="news-card__card-link"></a>
+                <img  src="/image/{{ item.image}}" alt="" class="news-card__image">
+             <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">{{item.nom}}</h2>
+               <div class="news-card__post-name">Auxiliaire de vie</div>
+               <div class="news-card__details-wrapper">
+                  <a href="#" class="news-card__read-more">Lire la suite <i class="fas fa-long-arrow-alt-right"></i></a>
+               </div>
+             </div>
+          </div>
+             {% endfor %}
+     </div>
 </section>
 
- <center><section  class="sec" style="padding: 60px; width:90%;"   >
-
- <div class="left"> 
-  <h1  style="font-family: system-ui; color:darkblue; ">L’accompagnement de l’enfant avec autisme</h1>
-  <p style="font-family: system-ui;" >L’éducation d’un enfant est une étape importante qui ancre de solides bases pour son avenir. Les parents d’un enfant autiste devront se montrer patients et organisés, car le processus d’apprentissage sera plus compliqué et plus long que pour un enfant dit, neurotypique. Nos fiches-conseils abordent différentes thématiques liées aux apprentissages. Propreté, compétences scolaires, autonomie, relations sociales, alimentation : nous abordons les problèmes que vous pourrez rencontrer et vous donnons quelques clés pour faire progresser votre enfant.
-
-  </p>
-
-</div>
 
 
-<div class="right" > 
-  <h1  style="font-family: system-ui; color:darkblue; ">L’accompagnement de l’adulte avec autisme
-  </h1>
-  <p style="font-family: system-ui;" >Une personne autiste doit être accompagnée tout au long de sa vie, en fonction de son niveau d’autonomie. Beaucoup de prises en charge prennent fin au moment de l’entrée dans la vie active. La personne autiste se retrouve alors face à bon nombre de défis à relever : trouver un emploi, se construire une vie sociale, gérer les particularités de l’autisme au quotidien… Nous vous proposons un éclairage sur ces différents thèmes, avec un focus sur les personnes autistes dites de haut niveau.
+ <center>
+ <section  class="sec" style="padding: 60px; width:90%;"   >
+         <div class="left"> 
+              <h1  style="font-family: system-ui; color:darkblue; ">L’accompagnement de l’enfant avec autisme</h1>
+              <p style="font-family: system-ui;" >L’éducation d’un enfant est une étape importante qui ancre de solides bases pour son avenir. Les parents d’un enfant autiste devront se montrer patients et organisés, car le processus d’apprentissage sera plus compliqué et plus long que pour un enfant dit, neurotypique. Nos fiches-conseils abordent différentes thématiques liées aux apprentissages. Propreté, compétences scolaires, autonomie, relations sociales, alimentation : nous abordons les problèmes que vous pourrez rencontrer et vous donnons quelques clés pour faire progresser votre enfant. </p>
+         </div>
 
-  </p>
-
-</div>
+          <div class="right" > 
+             <h1 style="font-family: system-ui; color:darkblue; ">L’accompagnement de l’adulte avec autisme </h1>
+              <p style="font-family: system-ui;" >Une personne autiste doit être accompagnée tout au long de sa vie, en fonction de son niveau d’autonomie. Beaucoup de prises en charge prennent fin au moment de l’entrée dans la vie active. La personne autiste se retrouve alors face à bon nombre de défis à relever : trouver un emploi, se construire une vie sociale, gérer les particularités de l’autisme au quotidien… Nous vous proposons un éclairage sur ces différents thèmes, avec un focus sur les personnes autistes dites de haut niveau.</p>
+        </div>
 </section>
-
 </center>
 
 <div><center><img   style=" text-align:center; width:60%;height:30%;" src="/image/sout.jpg" alt="" srcset=""></center></div>
 
 
-    <style>
+
+
+
+
+ <style>
+
+
+
+
+ 
 
       .sec{
-
         display: inline-block;
-
       }
 
-
-      
       .content-wrapper {
         margin: 0 auto;
         max-width: 1200px;
@@ -111,6 +106,8 @@ L’AVS doit répondre aux besoins d’accompagnement spécifiques de l’enfant
         flex-flow: row wrap;
         justify-content: center;
         padding: 0.5rem;
+        margin-left: 20%;
+        margin-top:-20%;
       }
       
       .news-card {
@@ -248,14 +245,6 @@ L’AVS doit répondre aux besoins d’accompagnement spécifiques de l’enfant
             left: 0.5rem;
             color: yellow;
           }
-
-
-
-
-
-
-
-
 .about {
   background-color: var(--accent-color);
   height: auto;

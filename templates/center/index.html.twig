@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Autisme!{% endblock %}
+{% block title %}Autisme Tunisie{% endblock %}
 
 {% block body %}
 
+
+<!--picture-->
 <header>
 
   <div class="owl-carousel owl-theme">
@@ -16,6 +18,7 @@
       </div>
 </header>
 
+<!---paragraphe-->
         <center><div class="histoire4 col-md-6 ">
       <h1 style="color:green;">Retrouvez ici, des actualités sélectionnées pour vous.</h1>
         <h3>
@@ -24,6 +27,8 @@
         </h3>
     </div></center>
   
+
+  <!---maps-->
 <section style="padding:20px;">
     <div    id="maCarte"></div>
 
@@ -53,11 +58,7 @@ var carte = L.map('maCarte').setView([36.8064835, 10.1815426], 13);
 
   
 </section>
-
-
-   
-
-
+<!---information about center-->
 <hr >
 
 <div class="fullHistoire container">
@@ -80,8 +81,6 @@ La fondatrice de l’Association Farah d’intégration des enfants autistes et 
             </p>
       </div>
      </div>
-
-
 
    <div  style="padding: 50px;" class="histoire1 col-md-6">
      <h2>Ouverture de 1er centre public pour enfants autistes</h2>
@@ -135,7 +134,7 @@ La fondatrice de l’Association Farah d’intégration des enfants autistes et 
 
 #maCarte{
 height: 50%;
- width:120%;
+ width:100%;
   padding: 10px 10px;
 background: white;
 font: 14px/16px Arial, Helvetica, sans-serif;

@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RegionRepository;
 use App\Repository\MedecinRepository;
 use phpDocumentor\Reflection\Types\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=MedecinRepository::class)
@@ -58,6 +59,17 @@ class Medecin
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="Medecin")
      */
     private $commentaires;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="medcin")
+     */
+    private $category;
+
+  
+   
+
+
+    
 
     public function __construct()
     {
@@ -211,6 +223,29 @@ class Medecin
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+  
+
+  
+
+
+   
+
+   
+  
+ 
 
    
 

@@ -5,10 +5,14 @@ namespace App\Controller;
 
 use DateTimeImmutable;
 use App\Entity\Medecin;
+use App\Data\SearchData;
+use App\Form\SearchForm;
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
-use App\Repository\CalendarRepository;
+
+use App\Repository\MedecinRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,12 +28,32 @@ class MedecinController extends AbstractController
     /** 
      * @Route("/medecin", name="medecin")
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator, MedecinRepository $repository): Response
     {
-        $medecin= $this->entityManager->getRepository(Medecin::class)->findAll();
+        //pagination
+        $donnees = $this->entityManager->getRepository(Medecin::class)->findAll();
+
+        $medecin = $paginator->paginate(
+            $donnees, //on passe les donnees
+            $request->query->getInt('page', 1),//numero de la page en cour ,1 par defaut
+            10
+        );
+
+
+
+         //search
+
+        $data = new SearchData();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+
+        $medecin = $repository->findSearch($data);
+
 
         return $this->render('medecin/index.html.twig', [
-            'medecin' =>$medecin
+            'medecin' =>$medecin,
+            'form' => $form->createView()
         ]);
     }
      /** 
@@ -60,31 +84,6 @@ class MedecinController extends AbstractController
 
 
         ]);
-      }
-
-
-
-    public function index1(CalendarRepository $calendar)
-    {
-        $events = $calendar->findAll();
-
-        $rdvs = [];
-
-        foreach ($events as $event) {
-            $rdvs[] = [
-                'id' => $event->getId(),
-                'start' => $event->getStart()->format('Y-m-d H:i:s'),
-                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                'title' => $event->getTitle(),
-                'description' => $event->getDescription(),
-                'backgroundColor' => $event->getbackgroundcolor(),
-                'borderColor' => $event->getBorderColor(),
-                'textColor' => $event->getTextColor(),
-                'allDay' => $event->getAllDay(),
-            ];
-        }
-
-
     }
-   }  
-
+   
+}

@@ -30,28 +30,6 @@ class Admin
     private $mot_pass;
 
     /**
-     * @ORM\OneToMany(targetEntity=Medecin::class, mappedBy="Admin")
-     */
-    private $medecins;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Avs::class, mappedBy="Admin")
-     */
-    private $avs;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Center::class, mappedBy="Admin")
-     */
-    private $centers;
-
-    
-
-    /**
-     * @ORM\OneToMany(targetEntity=Publicite::class, mappedBy="Admin")
-     */
-    private $publicites;
-
-    /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="Admin")
      */
     private $commentaires;

@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Show{% endblock %}
+{% block title %}Autisme Tunisie{% endblock %}
 
 {% block body %}
+<!--button back-->
+<div class="backBtn">
+  <span class="line tLine"></span>
+  <span class="line mLine"></span>
+  <a  style="color: black;" href="{{path('medecin')}}"> <span class="label">Back</span> </a>
+  <span class="line bLine"></span>
+</div>
 
+<!--card doctor-->
 
 <section style="margin-top:20px; margin-left:20px; "  class="crt">
   
@@ -24,25 +32,23 @@
               <a href="{{path('rendez_vous')}}"><i class="fa fa-calendar"></i></a>
             </li>
             <li>
-              <a href="{{path('contact')}}"><i class="fa fa-envelope"></i></a>
+              <a href="{{path('send')}}"><i class="fa fa-envelope"></i></a>
             </li>
             <li>
               <a href="#"><i class="fa fa-map-marker"></i></a>
             </li>
           </ul>
-          <a href="{{path('rendez_vous')}}" class="-btn -bg -txt">
-  BUTTON
+
 </a>
         </div>
       </div>
     </div>
  
  </section>
-
-
+ 
 
 <section style="margin-left:50%;  ">
-<form style=" margin-top:-50%; " >
+<form style=" margin-top:-60%; " >
  
 <fieldset >
 <legend style="color: cornflowerblue;"> Horaire d'ouverture</legend>
@@ -65,7 +71,7 @@
 
 
 
-<section style=" margin-top:5%; width:30%; margin-left:10px;"    >
+<section style=" margin-top:10%; width:30%; margin-left:10px;"    >
 
 <!--commentaire-->
 <h2 class="text-capitalize" >Commentaires <span >{{medecin.getCommentaires.count}}</span></h2>
@@ -119,7 +125,83 @@
 
 <style>
    
-
+  div.backBtn {
+    width: 100px;
+  right: 100px;
+    top: 100px;
+    background-color: #f4f4f4;
+    transition: all 0.4s ease;
+    position: absolute;
+    cursor: pointer;
+    
+  }
+  
+  span.line {
+    bottom: auto;
+    right: auto;
+    top: auto;
+    left: auto;
+    background-color: #333;
+    border-radius: 10px;
+    width: 100%;
+    left: 0px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: width 0.2s ease 0.1s, left 0.2s ease, transform 0.2s ease 0.3s, background-color 0.2s ease;
+  }
+  
+  span.tLine {
+    top: 0px;
+  }
+  
+  span.mLine {
+    top: 13px;
+    opacity: 0;
+  }
+  
+  span.bLine {
+    top: 26px;
+  }
+  
+  .label {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.4s ease;
+    font-size: 1em;
+  }
+  
+  div.backBtn:hover span.label {
+    left: 25px
+  }
+  
+  div.backBtn:hover span.line {
+    left: -10px;
+    height: 5px;
+    background-color: #F76060;
+  }
+  
+  div.backBtn:hover span.tLine {
+    width: 25px;
+    transform: rotate(-45deg);
+    left: -15px;
+    top: 6px;
+  }
+  
+  div.backBtn:hover span.mLine {
+    opacity: 1;
+    width: 30px;
+  }
+  
+  div.backBtn:hover span.bLine {
+    width: 25px;
+    transform: rotate(45deg);
+    left: -15px;
+    top: 20px;
+  }
 
 
 
@@ -171,7 +253,7 @@
 .card {
   position: relative;
   width: 400px;
-  height: 600;
+  height: 500;
   background: #fff;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);

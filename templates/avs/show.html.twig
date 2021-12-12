@@ -1,16 +1,23 @@
   {% extends 'base.html.twig' %}
 
-{% block title %}Hello AvsController!{% endblock %}
+{% block title %} Autisme{% endblock %}
 
 {% block body %}
-  
+  <!--button back-->
+<div class="backBtn">
+	<span class="line tLine"></span>
+	<span class="line mLine"></span>
+	<a  style="color: black;" href="{{path('avs')}}"> <span class="label">Back</span> </a>
+	<span class="line bLine"></span>
+  </div>
+
+
   
   <div  style="margin-top:30px;"  id="container">	
 	
-<!-- Start	Product details -->
+<!-- more detail about avs -->
 	<div class="product-details">
-		
-		<!-- 	Product Name -->
+		<!-- card -->
 	<h1>{{ avs.nom }}</h1>
 <span class="hint-star star">
 		<i class="fa fa-star" aria-hidden="true"></i>
@@ -19,31 +26,20 @@
 		<i class="fa fa-star-half-o" aria-hidden="true"></i>
 		<i class="fa fa-star-o" aria-hidden="true"></i>
 	</span>
-		
-	
-<!-- The most important information about the product -->
+<!-- The most important information about the avs -->
 		<p class="information">{{ avs.description }}</p>
+	
+    <div class="control">
+<!-- Start Button  -->
+	    <button class="btn">
+	<a  style="color: black;" href="{{path('send')}}">  <span class="buy">Contacter</span> </a>
 
-		
-		
-<!-- 		Control -->
-<div class="control">
-	
-<!-- Start Button buying -->
-	<button class="btn">
-   <span class="buy">Contacter</span>
- </button>
-	<!-- End Button buying -->
-	
-</div>
+        </button>
+	<!-- End Button  -->	
+    </div>
 			
 </div>
-	
-<!-- 	End	Product details   -->
-	
-	
-	
-<!-- 	Start product image & Information -->
+
 	
 <div class="product-image">
 	
@@ -63,49 +59,7 @@
 </div>
 </div>
 <!--  End product image  -->
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,7 +67,6 @@
   <style>
 
 
-/* fonts  */
 @import url('https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web');
 
 
@@ -128,8 +81,6 @@
 	width: 700px;
 	
 }
-
-
 
 /* 	Product details  */
 .product-details {
@@ -307,6 +258,88 @@ border-color:yellow;
   overflow: hidden;
   color: black;
 }
+
+
+
+div.backBtn {
+    width: 100px;
+  right: 100px;
+    top: 100px;
+    background-color: #f4f4f4;
+    transition: all 0.4s ease;
+    position: absolute;
+    cursor: pointer;
+    
+  }
+  
+  span.line {
+    bottom: auto;
+    right: auto;
+    top: auto;
+    left: auto;
+    background-color: #333;
+    border-radius: 10px;
+    width: 100%;
+    left: 0px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: width 0.2s ease 0.1s, left 0.2s ease, transform 0.2s ease 0.3s, background-color 0.2s ease;
+  }
+  
+  span.tLine {
+    top: 0px;
+  }
+  
+  span.mLine {
+    top: 13px;
+    opacity: 0;
+  }
+  
+  span.bLine {
+    top: 26px;
+  }
+  
+  .label {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.4s ease;
+    font-size: 1em;
+  }
+  
+  div.backBtn:hover span.label {
+    left: 25px
+  }
+  
+  div.backBtn:hover span.line {
+    left: -10px;
+    height: 5px;
+    background-color: #F76060;
+  }
+  
+  div.backBtn:hover span.tLine {
+    width: 25px;
+    transform: rotate(-45deg);
+    left: -15px;
+    top: 6px;
+  }
+  
+  div.backBtn:hover span.mLine {
+    opacity: 1;
+    width: 30px;
+  }
+  
+  div.backBtn:hover span.bLine {
+    width: 25px;
+    transform: rotate(45deg);
+    left: -15px;
+    top: 20px;
+  }
+
+
 
 </style>
   {% endblock %}

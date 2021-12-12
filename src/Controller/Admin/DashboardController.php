@@ -6,11 +6,11 @@ namespace App\Controller\Admin;
 use App\Entity\Avs;
 use App\Entity\User;
 use App\Entity\Center;
-use App\Entity\Article;
 use App\Entity\Medecin;
 use App\Entity\Category;
 use App\Entity\Publicite;
 use App\Entity\Commentaire;
+use App\Entity\Region;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -41,11 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('avs', 'fas fa-list', Avs::class);
         yield MenuItem::linkToCrud('center','fas fa-list', Center::class);
         yield MenuItem::linkToCrud('publicite','fas fa-list', Publicite::class);
-        
-        
-
-
-
-
+        yield MenuItem::linkToCrud('category','fas fa-list', Category::class);
+        yield MenuItem::linkToCrud('region','fas fa-list', Region::class);
     }
 }

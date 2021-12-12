@@ -17,9 +17,9 @@ class ContactType extends AbstractType
         $builder
         ->add('name', TextType::class, array('label'=> 'name', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
         ->add('email', TextType::class, array('label'=> 'email','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-        ->add('subject', TextType::class, array('label'=> 'subject','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+        ->add('subject', TextType::class, array('label'=> 'sujet','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
         ->add('message', TextareaType::class, array('label'=> 'message','attr' => array('class' => 'form-control')))
-        ->add('Save', SubmitType::class, array('label'=> 'submit', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-top:15px')))
+        ->add('Save', SubmitType::class, array('label'=> 'Envoyer', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-top:15px')))
         ->getForm();
     }
 

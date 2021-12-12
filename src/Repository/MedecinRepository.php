@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Medecin;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Data\SearchData;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Medecin|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,37 +17,58 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class MedecinRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
-        parent::__construct($registry, Medecin::class);
-    }
-
-    // /**
-    //  * @return Medecin[] Returns an array of Medecin objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Medecin
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
-}
+        
+            public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator )
+            {
+                parent::__construct($registry, Medecin::class);
+                $this->paginator = $paginator;
+            }
+        
+            /**
+             * Résoudre les cours en lien avec une recherche
+             * @return PaginationInterface
+             */
+        
+            public function findSearch(SearchData $search): PaginationInterface
+            {
+                $query = $this
+                 ->createQueryBuilder('p')
+                 ->select('c','p')
+                 ->join('p.category', 'c');
+        
+                 if (!empty($search->q)) {
+                    $query = $query
+                        ->andWhere('p.nom LIKE :q')
+                        ->setParameter('q', "%{$search->q}%");
+                }
+        
+                if (!empty($search->min)) {
+                    $query = $query
+                        ->andWhere('p.prix >= :min')
+                        ->setParameter('min', $search->min);
+                }
+        
+                if (!empty($search->max) ) {
+                    $query = $query
+                        ->andWhere('p.prix <= :max')
+                        ->setParameter('max', $search->max);
+                }
+        
+        
+        
+                if (!empty($search->category)) {
+                    $query = $query
+                        ->andWhere('c.id IN (:category)')
+                        ->setParameter('category', $search->category);
+                }
+        
+                $query = $query->getQuery();
+                return $this->paginator->paginate(
+                    $query,
+                    $search->page,
+                   12
+                );
+            }
+        
+        
+        }

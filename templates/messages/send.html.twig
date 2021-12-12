@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messagerie{% endblock %}
+
+{% block body %}
+<img style="float: left; width:45%; height:80%; margin-left:10%; padding-top:10px;"  src="/image/contact.jpeg" alt="image"   class=”full-width-img”>
+
+
+	<section  style="margin-top:50px;" lass="container">
+		<div class="row">
+			<div class="col">
+			
+                {{ form(form) }}
+				<a   class="btn " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    Voir mes dossiers
+                </a>
+			</div>
+		</div>
+	</section>
+	<div  style="margin-top: 72px; width:20%;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+		<div class="offcanvas-header">
+			<h2 class="offcanvas-title" id="offcanvasExampleLabel">Mes dossiers</h2>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+            <div class="list-group">
+                <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Accueil</a>
+            </div>
+            <div class="list-group">
+                <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Boîte de réception</a>
+            </div>
+            <div class="list-group">
+                <a href="{{ path("messages") }}" class="list-group-item list-group-item-action">Eléments envoyés</a>
+            </div>
+		</div>
+	</div>
+
+<style>
+label{
+    color:#000000;
+    font-size: 20px;
+    font-style: italic;
+}
+   .form{
+       color:black;
+     
+   }
+
+   .btn{
+        margin-top: 20px;
+        width: 100%;
+        background-color: #000000;
+        color:rgb(255, 255, 255)
+    }
+</style>
+    
+{% endblock %}

@@ -1,0 +1,38 @@
+<!--filtrage avs celon region-->
+
+
+<div   class="reg col-md-6">
+
+     {{ form_start (form, {attr: {class: 'filtre js-filtre-form'}}) }}
+     {{ form_row  (form.q,{ 'attr':{'class':'mol'} }) }}<br>    
+     <h4 style="margin-left: 40px;">Region</h4>
+     {{ form_row(form.region,{ 'attr':{'class':'bar'} }) }} 
+     <button  type="submit" class="btn btn-warning w-50">Poursuivre</button>
+     {{ form_end(form) }}
+</div>
+
+
+
+
+
+<style>
+.reg{
+    width:30%;
+ height: 30%;
+ margin-left:20px;
+ margin-top:30px;
+ border-radius: 10px;
+
+}
+.bar{
+    display: flex;
+    flex-direction:column;
+    margin-left: 10px;
+}
+.mol {    outline: none;
+  	border: 3px solid rgb(255, 233, 34);
+    
+      border-radius: 20px;
+}
+</style>
+

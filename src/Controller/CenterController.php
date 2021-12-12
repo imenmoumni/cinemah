@@ -26,6 +26,8 @@ class CenterController extends AbstractController
         ->findAll();
         return $this->render('center/index.html.twig', [
             'publicite' => $publicite,
+
+
             
 
             

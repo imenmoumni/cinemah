@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Avs;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Data1\SearchData1;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Avs|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,37 +17,58 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AvsRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator )
     {
         parent::__construct($registry, Avs::class);
+        $this->paginator = $paginator;
     }
 
-    // /**
-    //  * @return Avs[] Returns an array of Avs objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    /**
+     * Résoudre les cours en lien avec une recherche
+     * @return PaginationInterface
+     */
 
-    /*
-    public function findOneBySomeField($value): ?Avs
+    public function findSearch(SearchData1 $search): PaginationInterface
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $this
+         ->createQueryBuilder('p')
+         ->select('c','p')
+         ->join('p.region', 'c');
+
+         if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.nom LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->min)) {
+            $query = $query
+                ->andWhere('p.prix >= :min')
+                ->setParameter('min', $search->min);
+        }
+
+        if (!empty($search->max) ) {
+            $query = $query
+                ->andWhere('p.prix <= :max')
+                ->setParameter('max', $search->max);
+        }
+
+
+
+        if (!empty($search->region)) {
+            $query = $query
+                ->andWhere('c.id IN (:region)')
+                ->setParameter('region', $search->region);
+        }
+
+        $query = $query->getQuery();
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+           12
+        );
     }
-    */
+
+
 }

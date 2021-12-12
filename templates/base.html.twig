@@ -1,20 +1,28 @@
 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<!--favicon-->
+<link rel="icon" type="image/png" sizes="30x30" href="/image/loo.png">
+</head>
         <title>{% block title %}Autisme Tunisie{% endblock %}</title>
        
-       
+       <!--stylesheets-->
         {% block stylesheets %}
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
          <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
          <link href='fullcalendar/main.css' rel='stylesheet' />
-         
+
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.css%22%3E">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.Default.css%22%3">
     <link rel='stylesheet' type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.1/fullcalendar.min.css'/></style>
@@ -23,6 +31,8 @@
 <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
         {% endblock %}
 
+
+        <!--javascripts-->
         {% block javascripts %}
         <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
          <script src="{{asset('js/map.js')}}"></script>
@@ -34,20 +44,24 @@
           <script src="http://fullcalendar.io/js/fullcalendar-2.7.1/lib/jquery.min.js"></script>
           <script src="http://fullcalendar.io/js/fullcalendar-2.7.1/fullcalendar.min.js"></script>
           <script src="https://polyfill.io/v3/polyfill.min.js?features=default%22%3E"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous" defer></script>
 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+         
         {% endblock %}
    
      
 
   
-
+<!--nav-->
 <div class="topnav" id="myTopnav">
+  <img  style="width:150px;height:72px;float:left;"   src="/image/loo.png" alt="" srcset="">
   <a href="{{path('home')}}" class="active">S'informer <i class="fa fa-home" aria-hidden="true"></i></a>
   <a href="{{path('center')}}">Actualité </a>
   <a href="{{path('medecin')}}">Thérapeute </i></a>
   <a href="{{path('avs')}}">Accompagner </i></a>
-  <a href="{{path('contact')}}">Contact </i></a>
+  <a href="{{path('send')}}">Contact </i></a>
 
   {% if app.user %}
 
@@ -72,7 +86,7 @@
 </div>
 
 
-
+<!--nav script-->
 <script>function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -83,6 +97,11 @@
 }
 </script>
 
+
+
+
+
+<!--nac css-->
 <style>
   body {
     margin: 0;
@@ -91,13 +110,13 @@
   
   .topnav {
     overflow: hidden;
-    background-color: #34d9df;
+    background-color: #0ec8f7;
   }
   
   .topnav a {
     float: left;
     display: block;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     padding: 24px 16px;
     text-decoration: none;
@@ -107,12 +126,12 @@
   }
   
   .topnav a:hover {
-    background-color: #f7df0e;
+    background-color: #f70e5c;
     color: black;
   }
   
   .topnav a.active {
-    background-color: #f7df0e;
+    background: linear-gradient(0.25turn, #f70e5c,  #0ec8f7);
     color: rgb(8, 7, 7);
   }
   
@@ -148,7 +167,12 @@
   
   </style>
    
-
+  {% for message in app.flashes("message") %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
 
     
 
@@ -156,6 +180,10 @@
 
   {% endblock %}
 
+
+
+
+  <!--footer-->
   <div style="margin-top: 20%;"  class="pg-footer">
     <footer class="footer">
       <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
@@ -166,50 +194,39 @@
           <div class="footer-logo">
             <a class="footer-logo-link" href="#">
               <span class="hidden-link-text">Autisme Tunisie</span>
-              <h5>Autisme Tunisie</h5>
-            </a>
-          </div>
+              <img  style="width:150px;height:70px;float:left;"   src="/image/loo.png" alt="" srcset="">
+            </div>
           <div class="footer-menu">
-            <h2 class="footer-menu-name"> Autisme Tunisie premier réseau tunisienne pour l'autisme</h2>
+            <h9 style="color: rgb(214, 9, 77);"> Autisme Tunisie premier réseau tunisienne pour l'autisme</h9>
             <ul id="menu-get-started" class="footer-menu-list">
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">Start</a>
+                <a href="https://comprendrelautisme.comhttps://www.autisme.ch/autisme/informations-generales/se-documenter/documents-a-telecharger">Article</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">Documentation</a>
+                <a href="https://www.autisme.ch/autisme/informations-generales/se-documenter/documents-a-telecharger">Documentation</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">Installation</a>
+                <a href="http://www.canalautisme.com/les-applications-pour-tablettes.html">Jeux d'apprentissage</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="footer-content-column">
           <div class="footer-menu">
-            <h2 class="footer-menu-name"> Company</h2>
+            <h2 class="footer-menu-name"> Association</h2>
             <ul id="menu-company" class="footer-menu-list">
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Contact</a>
+                <a href="http://associationilef.org/index.php/centreautisme/">Association ILEF</a>
               </li>
               <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                <a href="#">News</a>
+                <a href="https://jamaity.org/association/irada-autisme-bizerte-2/">Irada Autisme</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Careers</a>
+                <a href="https://www.tomatis.com/fr/tunis-el-omrane/association-pas-pas">Association Pas A Pas</a>
               </li>
             </ul>
           </div>
-          <div class="footer-menu">
-            <h2 class="footer-menu-name"> Legal</h2>
-            <ul id="menu-legal" class="footer-menu-list">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                <a href="#">Privacy Notice</a>
-              </li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
+         
         </div>
         <div class="footer-content-column">
           <div class="footer-menu">
@@ -230,7 +247,7 @@
               <li class="menu-item menu-item-type-post_type_archive menu-item-object-customer">
                 <a href="{{path('register')}}">S'inscrire</a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="{{path('contact')}}">contact</a>
+                <a href="{{path('send')}}">contact</a>
               </li>
             </ul>
           </div>
